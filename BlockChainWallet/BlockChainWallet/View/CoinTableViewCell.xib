@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="CoinTableViewCell" customModule="BlockChainWallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="392" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btcLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Uv5-Go-MeS">
+                        <rect key="frame" x="20" y="24" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Uv5-Go-MeS" secondAttribute="height" multiplier="1:1" id="ecF-gN-RaG"/>
+                            <constraint firstAttribute="width" constant="40" id="vnB-OE-IGi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDz-de-7Mw">
+                        <rect key="frame" x="70" y="33.5" width="32.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2a-hZ-8VZ">
+                        <rect key="frame" x="361" y="33" width="11" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="r2a-hZ-8VZ" secondAttribute="trailing" constant="20" id="5MS-iQ-Uga"/>
+                    <constraint firstItem="eDz-de-7Mw" firstAttribute="leading" secondItem="Uv5-Go-MeS" secondAttribute="trailing" constant="10" id="7PM-5i-lrs"/>
+                    <constraint firstItem="Uv5-Go-MeS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="O3h-nx-AGq"/>
+                    <constraint firstItem="r2a-hZ-8VZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VGZ-ls-Nav"/>
+                    <constraint firstItem="Uv5-Go-MeS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="j98-bw-rdb"/>
+                    <constraint firstItem="eDz-de-7Mw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="r61-ja-6Z3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="coinAmountLab" destination="r2a-hZ-8VZ" id="chr-Mo-eve"/>
+                <outlet property="coinImgV" destination="Uv5-Go-MeS" id="kCr-Sy-rYo"/>
+                <outlet property="coinNameLab" destination="eDz-de-7Mw" id="js0-Jc-Ofr"/>
+            </connections>
+            <point key="canvasLocation" x="173.91304347826087" y="75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btcLogo" width="40" height="40"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
