@@ -66,6 +66,12 @@ class WalletViewController: UIViewController {
         
     }
     
+    @IBAction func tapAddressAction(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReceiveViewController") as! ReceiveViewController
+        vc.chainType = currentChainType
+        vc.coinName = coinNameDic[currentChainType]![0]
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
@@ -86,13 +92,19 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let receiveAction = UITableViewRowAction.init(style: .default, title: "收款") { (action, indexPath) in
-            
+        let receiveAction = UITableViewRowAction.init(style: .default, title: "收款") {[weak self] (action, indexPath) in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReceiveViewController") as! ReceiveViewController
+            vc.chainType = self!.currentChainType
+            vc.coinName = self!.coinNameDic[self!.currentChainType]![indexPath.row]
+            self!.navigationController?.pushViewController(vc, animated: true)
         }
         receiveAction.backgroundColor = UIColor(hexString: "#0FB5CF")
 
-        let payAction = UITableViewRowAction.init(style: .default, title: "付款") { (action, indexPath) in
-            
+        let payAction = UITableViewRowAction.init(style: .default, title: "付款") {[weak self] (action, indexPath) in
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
+            vc.chainType = self!.currentChainType
+            vc.coinName = self!.coinNameDic[self!.currentChainType]![indexPath.row]
+            self!.navigationController?.pushViewController(vc, animated: true)
         }
         payAction.backgroundColor = UIColor(hexString: "#0182EB")
         return [receiveAction, payAction]

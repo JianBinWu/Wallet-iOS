@@ -33,6 +33,10 @@
 		CEF28EF425D51E830059988C /* CoinTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28EF325D51E830059988C /* CoinTypeTableViewCell.swift */; };
 		CEF28EF725D53B5E0059988C /* WalletTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28EF625D53B5E0059988C /* WalletTableSectionHeaderView.swift */; };
 		CEF28F0125DA2CA90059988C /* CoinName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28F0025DA2CA90059988C /* CoinName.swift */; };
+		CEF28F0425DB62010059988C /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28F0325DB62010059988C /* TransactionViewController.swift */; };
+		CEF28F0725DB696B0059988C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28F0625DB696B0059988C /* CustomNavigationController.swift */; };
+		CEF28F0D25DD1AA30059988C /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28F0C25DD1AA30059988C /* ReceiveViewController.swift */; };
+		CEF28F1025DD7DA00059988C /* TransferFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28F0F25DD7DA00059988C /* TransferFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		CEF28EF325D51E830059988C /* CoinTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTypeTableViewCell.swift; sourceTree = "<group>"; };
 		CEF28EF625D53B5E0059988C /* WalletTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		CEF28F0025DA2CA90059988C /* CoinName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinName.swift; sourceTree = "<group>"; };
+		CEF28F0325DB62010059988C /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		CEF28F0625DB696B0059988C /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		CEF28F0C25DD1AA30059988C /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		CEF28F0F25DD7DA00059988C /* TransferFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,7 @@
 				CEC5757D25B5BA5A00B0E1C9 /* View */,
 				CEC5757C25B5BA5300B0E1C9 /* Controller */,
 				CEC575A825B6BFB900B0E1C9 /* CustomTabBarViewController.swift */,
+				CEF28F0625DB696B0059988C /* CustomNavigationController.swift */,
 				CEC575A125B68B8A00B0E1C9 /* HeaderImport.swift */,
 				CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */,
 				CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */,
@@ -154,6 +163,8 @@
 				CEC575AC25B6C17A00B0E1C9 /* WalletViewController.swift */,
 				CEC575AF25B6C18A00B0E1C9 /* MeViewController.swift */,
 				CECB158725B6E7FD00E26240 /* WalletListViewController.swift */,
+				CEF28F0325DB62010059988C /* TransactionViewController.swift */,
+				CEF28F0C25DD1AA30059988C /* ReceiveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			children = (
 				CEC5759B25B68B1400B0E1C9 /* Const.swift */,
 				CEC5759725B68A2100B0E1C9 /* Tool.swift */,
+				CEF28F0F25DD7DA00059988C /* TransferFunction.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -337,6 +349,8 @@
 				CEC5748425B5A36000B0E1C9 /* ViewController.swift in Sources */,
 				CEC575A925B6BFB900B0E1C9 /* CustomTabBarViewController.swift in Sources */,
 				CEC5748025B5A36000B0E1C9 /* AppDelegate.swift in Sources */,
+				CEF28F1025DD7DA00059988C /* TransferFunction.swift in Sources */,
+				CEF28F0725DB696B0059988C /* CustomNavigationController.swift in Sources */,
 				CEC575A225B68B8A00B0E1C9 /* HeaderImport.swift in Sources */,
 				CEF28EF425D51E830059988C /* CoinTypeTableViewCell.swift in Sources */,
 				CEC575B425B6D82E00B0E1C9 /* CoinTableViewCell.swift in Sources */,
@@ -346,6 +360,8 @@
 				CEC5759825B68A2100B0E1C9 /* Tool.swift in Sources */,
 				CECB158825B6E7FD00E26240 /* WalletListViewController.swift in Sources */,
 				CEC5748225B5A36000B0E1C9 /* SceneDelegate.swift in Sources */,
+				CEF28F0D25DD1AA30059988C /* ReceiveViewController.swift in Sources */,
+				CEF28F0425DB62010059988C /* TransactionViewController.swift in Sources */,
 				CEC5759C25B68B1400B0E1C9 /* Const.swift in Sources */,
 				CEF28EF725D53B5E0059988C /* WalletTableSectionHeaderView.swift in Sources */,
 				CEC5757A25B5B89F00B0E1C9 /* UIColor+Extension.swift in Sources */,

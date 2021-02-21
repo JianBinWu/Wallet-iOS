@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         viewContainer.layer.cornerRadius = 15
         viewContainer.layer.borderColor = UIColor(hexString: "#E5E5EA").cgColor
     }
-    
 
 }
 

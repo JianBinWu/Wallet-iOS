@@ -64,6 +64,7 @@ class CreateIdentityViewController: UIViewController {
                 Identity.currentIdentity?.wallets.forEach({ (wallet) in
                     UserDefaults.standard.setValue(wallet.address, forKey: wallet.chainType!.rawValue)
                 })
+                UserDefaults.standard.setValue(password, forKey: "password")
             } catch {
                 print("createIdentity failed, error:\(error)")
                 DispatchQueue.main.async {

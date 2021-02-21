@@ -29,7 +29,7 @@ class CustomTabBarViewController: UITabBarController {
             let title = item["title"]
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: className)
             vc.title = title
-            let nav = UINavigationController(rootViewController: vc)
+            let nav = CustomNavigationController(rootViewController: vc)
             
             //配置tabbarItem
             let icon = item["icon"]!
