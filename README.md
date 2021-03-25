@@ -7,23 +7,23 @@ I've already uploaded all files, just download and run it.
 
 ## Try the APP
 ### Create new Identity and backup mnemonic words
-![CreateIdentity](https://github.com/JianBinWu/Wallet/SampleImage/CreateIdentity.PNG)
-![SetPassword](https://github.com/JianBinWu/Wallet/SampleImage/SetPassword.PNG)
-![Backup](https://github.com/JianBinWu/Wallet/SampleImage/Backup.PNG)
+![CreateIdentity](https://github.com/JianBinWu/Wallet/tree/main/SampleImage/CreateIdentity.PNG)
+![SetPassword](https://github.com/JianBinWu/Wallet/tree/main/SampleImage/SetPassword.PNG)
+![Backup](https://github.com/JianBinWu/Wallet/tree/main/SampleImage/Backup.PNG)
 
 ### Use Faucet to get test coins and check the balance on home page
 BTC faucet:
 https://coinfaucet.eu/en/btc-testnet/
 ETH faucet:
 https://faucet.kovan.network/
-![HomePage](https://github.com/JianBinWu/Wallet/SampleImage/HomePage.PNG)
+![HomePage](https://github.com/JianBinWu/Wallet/tree/main/SampleImage/HomePage.PNG)
 
 ### Transfer test and check the transaction result on explore
 BTC explore:
 https://live.blockcypher.com/btc-testnet/
 ETH explore:
 https://kovan.etherscan.io/
-![Transfer](https://github.com/JianBinWu/Wallet/SampleImage/Transfer.PNG)
+![Transfer](https://github.com/JianBinWu/Wallet/tree/main/SampleImage/Transfer.PNG)
 
 ## Troubleshooting
 If you use pod to re-import third-party frameworks, the bigInt framework will have problems due to version reasons, please follow the simulator prompts to modify the code.
