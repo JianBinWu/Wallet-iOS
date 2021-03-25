@@ -10,8 +10,8 @@ import UIKit
 class CustomTabBarViewController: UITabBarController {
     
     let arr = [
-        ["className": "WalletViewController", "title": "钱包", "icon": "wallet"],
-        ["className": "MeViewController", "title": "我", "icon": "me"],
+        ["className": "WalletViewController", "title": "tabbar_wallet".localized, "icon": "wallet"],
+        ["className": "MeViewController", "title": "tabbar_me".localized, "icon": "me"],
     ]
 
     override func viewDidLoad() {
@@ -24,14 +24,12 @@ class CustomTabBarViewController: UITabBarController {
     
     func addVCToTabBarVC() {
         for item in arr {
-            //生成对应viewController的导航容器
             let className = item["className"]!
             let title = item["title"]
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: className)
             vc.title = title
-            let nav = CustomNavigationController(rootViewController: vc)
             
-            //配置tabbarItem
+            let nav = CustomNavigationController(rootViewController: vc)
             let icon = item["icon"]!
             nav.tabBarItem.image = UIImage(named: icon)
             addChild(nav)

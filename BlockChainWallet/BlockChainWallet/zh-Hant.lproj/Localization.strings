@@ -1,0 +1,43 @@
+
+//tabbar
+"tabbar_wallet" = "錢包";
+"tabbar_me" = "我";
+
+//remind
+"remind_inputIdentityName" = "請輸入身份名";
+"remind_inputPassword" = "請輸入密碼";
+"remind_confirmPassword" = "請輸入確認密碼";
+"remind_passwordUnmatched" = "密碼和確認密碼不匹配";
+"remind_MnemonicCreating" = "正在生成助記詞";
+"remind_createMnemonicFail" = "生成助記詞失敗";
+"remind_addressAlreadyCopy" = "錢包地址已復制";
+
+//wallet
+"wallet_identity" = "身份錢包";
+"wallet_receiveCoin" = "收款";
+"wallet_payCoin" = "付款";
+"wallet_address" = "地址";
+
+//me
+"me_languages" = "多語言";
+
+//transaction
+"transaction_title" = "轉賬";
+"transaction_remind_inputReceiveAddress" = "請輸入收款地址";
+"transaction_remind_inputPayAmount" = "請輸入付款金額";
+"transaction_remind_inputFee" = "請輸入礦工費且不能為零";
+"Transfer_RemindPasswordIncorrect" = "密碼不正確";
+"Transfer_Failed" = "轉賬失敗";
+"Transfer_FeeNotZero" = "礦工費不能為0";
+"Transfer_RemindNotSufficient" = "餘額不足";
+"Transfer_RequestTimeOut" = "網絡請求超時";
+"Transfer_Success" = "轉賬成功";
+"Transfer_BadRequest" = "網絡請求失敗";
+
+//receive
+"receive_remind_scanCode" = "掃二維碼，轉入";
+
+
+//btn
+"btn_cancel" = "取消";
+"btn_confirm" = "確定";

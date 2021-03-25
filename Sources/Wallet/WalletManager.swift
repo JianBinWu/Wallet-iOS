@@ -159,7 +159,7 @@ public struct WalletManager {
       if output["tx_hash_big_endian"] != nil {
         utxo = UTXO.parseFormBlockchain(output, isTestNet: isTestnet, isSegWit: segWit.isSegWit)
       } else {
-        utxo = UTXO(raw: output)
+        utxo = UTXO.parseFormBlockcypher(output)
       }
       guard let unspent = utxo else {
         throw GenericError.paramError
@@ -182,7 +182,7 @@ public struct WalletManager {
       privateKeys = Array(repeating: changeKey, count: outputs.count)
     } else {
       let extendedKey = try wallet.privateKey(password: password)
-      guard let keychain = BTCKeychain(extendedKey: extendedKey), let key = keychain.changeKey(at: UInt32(changeIdx)) else {
+      guard let keychain = BTCKeychain(extendedKey: extendedKey), let key = keychain.externalKey(at: UInt32(changeIdx)) else {
           throw GenericError.unknownError
       }
       changeKey = key

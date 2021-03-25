@@ -1,0 +1,44 @@
+
+//tabbar
+"tabbar_wallet" = "钱包";
+"tabbar_me" = "我";
+
+//remind
+"remind_inputIdentityName" = "请输入身份名";
+"remind_inputPassword" = "请输入密码";
+"remind_confirmPassword" = "请输入确认密码";
+"remind_passwordUnmatched" = "密码和确认密码不匹配";
+"remind_MnemonicCreating" = "正在生成助记词";
+"remind_createMnemonicFail" = "生成助记词失败";
+"remind_addressAlreadyCopy" = "钱包地址已复制";
+
+//wallet
+"wallet_identity" = "身份钱包";
+"wallet_receiveCoin" = "收款";
+"wallet_payCoin" = "付款";
+"wallet_address" = "地址";
+
+//me
+"me_languages" = "多语言";
+
+//transaction
+"transaction_title" = "转账";
+"transaction_remind_inputReceiveAddress" = "请输入收款地址";
+"transaction_remind_inputPayAmount" = "请输入付款金额";
+"transaction_remind_inputFee" = "请输入矿工费且不能为零";
+"Transfer_RemindPasswordIncorrect" = "密码不正确";
+"Transfer_Failed" = "转账失败";
+"Transfer_FeeNotZero" = "矿工费不能为0";
+"Transfer_RemindNotSufficient" = "余额不足";
+"Transfer_RequestTimeOut" = "网络请求超时";
+"Transfer_Success" = "转账成功";
+"Transfer_BadRequest" = "网络请求失败";
+
+//receive
+"receive_remind_scanCode" = "扫二维码，转入";
+
+
+//btn
+"btn_cancel" = "取消";
+"btn_confirm" = "确定";
+

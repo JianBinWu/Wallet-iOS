@@ -9,12 +9,12 @@
 import Foundation
 import CoreBitcoin
 
-struct MnemonicUtil {
-  static func btcMnemonicFromEngWords(_ words: String) -> BTCMnemonic {
+public struct MnemonicUtil {
+  public static func btcMnemonicFromEngWords(_ words: String) -> BTCMnemonic {
     return BTCMnemonic(words: words.split(separator: " "), password: "", wordListType: BTCMnemonicWordListType.english)!
   }
 
-  static func generateMnemonic() -> String {
+  public static func generateMnemonic() -> String {
     let entropy = Data.tk_random(of: 16)
     let words = BTCMnemonic(entropy: entropy, password: "", wordListType: .english).words as! [String]
     return words.joined(separator: " ")

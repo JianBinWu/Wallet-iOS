@@ -17,7 +17,6 @@ class CreateIdentityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -30,19 +29,19 @@ class CreateIdentityViewController: UIViewController {
     
     func isParamValid() -> Bool {
         if identityNameTxtF.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            popToast("请输入身份名")
+            popToast("remind_inputIdentityName".localized)
             return false
         }
         if passwordTxtF.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            popToast("请输入密码")
+            popToast("remind_inputPassword".localized)
             return false
         }
         if confirmPwdTxtF.text?.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            popToast("请输入确认密码")
+            popToast("remind_confirmPassword".localized)
             return false
         }
         if passwordTxtF.text! != confirmPwdTxtF.text! {
-            popToast("密码和确认密码不匹配")
+            popToast("remind_passwordUnmatched".localized)
             return false
         }
         return true
@@ -52,7 +51,8 @@ class CreateIdentityViewController: UIViewController {
         let identityName = identityNameTxtF.text!
         let password = passwordTxtF.text!
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.label.text = "正在生成助记词"
+        hud.label.text = "remind_MnemonicCreating".localized
+        
         DispatchQueue.global().async { [weak self] in
             do {
                 let source = WalletMeta.Source.newIdentity
@@ -68,13 +68,13 @@ class CreateIdentityViewController: UIViewController {
             } catch {
                 print("createIdentity failed, error:\(error)")
                 DispatchQueue.main.async {
-                    MBProgressHUD.hide(for: self!.view, animated: true)
-                    popToast("生成助记词失败")
+                    hud.hide(animated: true)
+                    popToast("remind_createMnemonicFail".localized)
                 }
                 return
             }
             DispatchQueue.main.async {
-                MBProgressHUD.hide(for: self!.view, animated: true)
+                hud.hide(animated: true)
                 let backUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "BackUpMnemonicViewController") as! BackUpMnemonicViewController
                 backUpVC.mnemonicStr = self!.mnemonicStr
                 self!.navigationController?.pushViewController(backUpVC, animated: true)

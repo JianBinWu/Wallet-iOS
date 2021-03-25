@@ -1,0 +1,99 @@
+
+/* Class = "UILabel"; text = "创建身份"; ObjectID = "2Ca-Yk-HM9"; */
+"2Ca-Yk-HM9.text" = "신원 만들기";
+
+/* Class = "UITextField"; placeholder = "重复输入密码"; ObjectID = "842-Ly-a9A"; */
+"842-Ly-a9A.placeholder" = "비밀번호 반복";
+
+/* Class = "UILabel"; text = "矿工费"; ObjectID = "9WV-Nl-CFn"; */
+"9WV-Nl-CFn.text" = "광부 수수료";
+
+/* Class = "UILabel"; text = "你讲会拥有身份下的多链钱包，比如ETH、BTC"; ObjectID = "BZi-xj-VmJ"; */
+"BZi-xj-VmJ.text" = "ETH, BTC와 같은 신원으로 멀티 체인 지갑을 갖게됩니다.";
+
+/* Class = "UILabel"; text = "扫二维码，转入ETH"; ObjectID = "BhK-H5-ii5"; */
+"BhK-H5-ii5.text" = "QR 코드를 스캔하여 ETH로 전송";
+
+/* Class = "UILabel"; text = "·  请妥善保管助记词至隔离网络的安全地方"; ObjectID = "DIc-m9-8Uz"; */
+"DIc-m9-8Uz.text" = "· 격리 된 네트워크의 안전한 장소에 니모닉 문구를 보관하십시오.";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "DYm-yO-eOe"; */
+"DYm-yO-eOe.text" = "0";
+
+/* Class = "UILabel"; text = "资产"; ObjectID = "Gxg-XE-9AG"; */
+"Gxg-XE-9AG.text" = "자산";
+
+/* Class = "UIButton"; normalTitle = "管理"; ObjectID = "KgW-Qo-Whm"; */
+"KgW-Qo-Whm.normalTitle" = "조치";
+
+/* Class = "UITextField"; placeholder = "备注"; ObjectID = "N8P-L2-ikK"; */
+"N8P-L2-ikK.placeholder" = "비고";
+
+/* Class = "UILabel"; text = "选择钱包"; ObjectID = "OHa-tj-wR0"; */
+"OHa-tj-wR0.text" = "지갑 선택";
+
+/* Class = "UILabel"; text = "创建身份"; ObjectID = "PQg-9C-0yN"; */
+"PQg-9C-0yN.text" = "신원 만들기";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "QMA-Xw-bSu"; */
+"QMA-Xw-bSu.placeholder" = "암호";
+
+/* Class = "UITextField"; placeholder = "身份名"; ObjectID = "S1N-wy-f0u"; */
+"S1N-wy-f0u.placeholder" = "신원 이름";
+
+/* Class = "UILabel"; text = "第一次使用钱包"; ObjectID = "UNU-aR-iV6"; */
+"UNU-aR-iV6.text" = "처음으로 지갑 사용";
+
+/* Class = "UIButton"; normalTitle = "复制"; ObjectID = "VNM-ZT-7P5"; */
+"VNM-ZT-7P5.normalTitle" = "부";
+
+/* Class = "UILabel"; text = "·  请勿将助记词在联网环境下分享和存储，比如邮件、相册、社交应用等。"; ObjectID = "a0h-Tl-Sko"; */
+"a0h-Tl-Sko.text" = "· 이메일, 사진 앨범, 소셜 응용 프로그램 등과 같은 네트워크 환경에서 니모닉 단어를 공유하고 저장하지 마십시오.";
+
+/* Class = "UITextView"; text = "entry pulp tool giant man rebuild hospital member priority lemon control arrive"; ObjectID = "auw-sf-gSC"; */
+"auw-sf-gSC.text" = "entry pulp tool giant man rebuild hospital member priority lemon control arrive";
+
+/* Class = "UILabel"; text = "金额"; ObjectID = "cRR-aH-nBa"; */
+"cRR-aH-nBa.text" = "양";
+
+/* Class = "UILabel"; text = "钱包地址"; ObjectID = "dJ6-II-JPD"; */
+"dJ6-II-JPD.text" = "지갑 주소";
+
+/* Class = "UILabel"; text = "BTC"; ObjectID = "dz2-N4-hWP"; */
+"dz2-N4-hWP.text" = "BTC";
+
+/* Class = "UILabel"; text = "请按顺序抄写助记词，请确保备份正确"; ObjectID = "h9L-48-wcl"; */
+"h9L-48-wcl.text" = "니모닉 단어를 순서대로 복사하십시오. 백업이 올바른지 확인하십시오.";
+
+/* Class = "UILabel"; text = "收款地址"; ObjectID = "ims-Hj-a0F"; */
+"ims-Hj-a0F.text" = "수신 주소";
+
+/* Class = "UILabel"; text = "恢复身份"; ObjectID = "kgq-ky-S2I"; */
+"kgq-ky-S2I.text" = "신원 복원";
+
+/* Class = "UIButton"; normalTitle = "已确认备份"; ObjectID = "mUr-X4-Xep"; */
+"mUr-X4-Xep.normalTitle" = "확인 된 백업";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "nA6-Xs-pfX"; */
+"nA6-Xs-pfX.placeholder" = "0";
+
+/* Class = "UIButton"; normalTitle = "创 建"; ObjectID = "oMo-nu-Osa"; */
+"oMo-nu-Osa.normalTitle" = "창조하다";
+
+/* Class = "UIButton"; normalTitle = "2N4ts1p2QqFfmmUmZDV5E6zZsBAYdyXkZFr"; ObjectID = "orN-dw-b17"; */
+"orN-dw-b17.normalTitle" = "2N4ts1p2QqFfmmUmZDV5E6zZsBAYdyXkZFr";
+
+/* Class = "UILabel"; text = "已拥有钱包"; ObjectID = "pfI-qN-FF0"; */
+"pfI-qN-FF0.text" = "이미 지갑이 있습니다";
+
+/* Class = "UIButton"; normalTitle = "转 账"; ObjectID = "s2o-97-aAW"; */
+"s2o-97-aAW.normalTitle" = "이전";
+
+/* Class = "UIButton"; normalTitle = "分享"; ObjectID = "sze-yz-Vbf"; */
+"sze-yz-Vbf.normalTitle" = "그것을 공유";
+
+/* Class = "UILabel"; text = "￥0"; ObjectID = "vu1-TI-4RN"; */
+"vu1-TI-4RN.text" = "0";
+
+/* Class = "UILabel"; text = "备份助记词"; ObjectID = "xAn-yv-rOV"; */
+"xAn-yv-rOV.text" = "백업 니모닉";

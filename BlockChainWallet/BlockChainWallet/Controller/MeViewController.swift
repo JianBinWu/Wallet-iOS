@@ -8,22 +8,34 @@
 import UIKit
 
 class MeViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    let rowTitleArr = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowTitleArr.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cellId")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "cellId")
+            cell?.selectionStyle = .none
+        }
+        cell?.textLabel?.text = rowTitleArr[indexPath.row]
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(LanguageSelectViewController(), animated: true)
+    }
 }

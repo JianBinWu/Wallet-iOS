@@ -1,0 +1,43 @@
+
+//tabbar
+"tabbar_wallet" = "財布";
+"tabbar_me" = "私";
+
+//remind
+"remind_inputIdentityName" = "ID名を入力してください";
+"remind_inputPassword" = "パスワードを入力してください";
+"remind_confirmPassword" = "確認パスワードを入力してください";
+"remind_passwordUnmatched" = "パスワードと確認パスワードが一致しません";
+"remind_MnemonicCreating" = "ニーモニックフレーズが生成されています";
+"remind_createMnemonicFail" = "ニーモニックの生成に失敗しました";
+"remind_addressAlreadyCopy" = "ウォレットアドレスがコピーされました";
+
+//wallet
+"wallet_identity" = "アイデンティティウォレット";
+"wallet_receiveCoin" = "支払いを受け取る";
+"wallet_payCoin" = "支払い";
+"wallet_address" = "住所";
+
+//me
+"me_languages" = "多言語";
+
+//transaction
+"transaction_title" = "転送";
+"transaction_remind_inputReceiveAddress" = "お支払い先住所を入力してください";
+"transaction_remind_inputPayAmount" = "お支払い金額を入力してください";
+"transaction_remind_inputFee" = "鉱夫料金を入力してください。ゼロにすることはできません。";
+"Transfer_RemindPasswordIncorrect" = "パスワードが正しくありません";
+"Transfer_Failed" = "転送に失敗しました";
+"Transfer_FeeNotZero" = "マイナー料金を0にすることはできません";
+"Transfer_RemindNotSufficient" = "残高不足";
+"Transfer_RequestTimeOut" = "ネットワーク要求がタイムアウトしました";
+"Transfer_Success" = "転送の成功";
+"Transfer_BadRequest" = "ネットワーク要求が失敗しました";
+
+//receive
+"receive_remind_scanCode" = "QRコードをスキャンしてに転送します";
+
+
+//btn
+"btn_cancel" = "キャンセル";
+"btn_confirm" = "決定する";

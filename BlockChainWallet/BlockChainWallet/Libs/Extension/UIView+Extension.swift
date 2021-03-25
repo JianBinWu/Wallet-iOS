@@ -16,7 +16,7 @@ enum ViewShadowType: Int {
 }
 
 extension UIView {
-    //添加单侧阴影
+    //
     func addShadow(color: UIColor, opacity: Float, radius: CGFloat, type: ViewShadowType, shadowWidth: CGFloat) {
         layer.masksToBounds = false
         layer.shadowColor = color.cgColor
@@ -41,14 +41,14 @@ extension UIView {
         layer.shadowPath = bezierPath.cgPath
     }
     
-    //添加阴影
+    //
     func addShadow(offset: CGSize) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.2
         layer.shadowOffset = offset
     }
     
-    //添加圆角
+    //
     func addCorner(_ radius: CGFloat, corners: UIRectCorner) {
         let shape = CAShapeLayer()
         shape.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath

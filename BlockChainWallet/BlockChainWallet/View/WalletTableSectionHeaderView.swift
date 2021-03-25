@@ -20,7 +20,7 @@ class WalletTableSectionHeaderView: UITableViewHeaderFooterView {
             make.top.equalToSuperview().offset(20)
             make.left.equalToSuperview().offset(15)
         }
-        titleLab.text = "身份钱包"
+        titleLab.text = "wallet_identity".localized
         titleLab.textColor = .lightGray
         titleLab.font = .systemFont(ofSize: 13)
     }

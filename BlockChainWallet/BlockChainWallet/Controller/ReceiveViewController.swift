@@ -22,13 +22,14 @@ class ReceiveViewController: UIViewController {
     }
     
     func initUI() {
-        titleLab.text = "扫二维码，转入\(coinName.rawValue)"
+        titleLab.text = "\("receive_remind_scanCode".localized)\(coinName.rawValue)"
         addressLab.text = UserDefaults.standard.string(forKey: chainType.rawValue)
         qrCodeImgV.image = generateQRCode(str: addressLab.text!)
     }
     
     @IBAction func copyAction(_ sender: Any) {
         UIPasteboard.general.string = addressLab.text
+        popToast("remind_addressAlreadyCopy".localized)
     }
     
 }

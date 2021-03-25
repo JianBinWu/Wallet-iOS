@@ -26,6 +26,7 @@ class WalletListViewController: UIViewController {
     }
     
     func initUI() {
+        
         coinTypeTableView.register(CoinTypeTableViewCell.self, forCellReuseIdentifier: "CoinTypeTableViewCell")
         walletTableView.register(UINib.init(nibName: "WalletTableViewCell", bundle: nil), forCellReuseIdentifier: "WalletTableViewCell")
         walletTableView.register(WalletTableSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "WalletTableSectionHeaderView")

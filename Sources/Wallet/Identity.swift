@@ -78,7 +78,7 @@ public final class Identity {
 public extension Identity {
   static func createIdentity(password: String, metadata: WalletMeta) throws -> (String, Identity) {
     let mnemonic = MnemonicUtil.generateMnemonic()
-
+    
     let identity = try Identity(metadata: metadata, mnemonic: mnemonic, password: password)
     currentIdentity = identity
     return (mnemonic, identity)

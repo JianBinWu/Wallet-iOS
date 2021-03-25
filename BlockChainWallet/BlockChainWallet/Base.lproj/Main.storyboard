@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -157,8 +157,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你讲会拥有身份下的多链钱包，比如ETH、BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZi-xj-VmJ">
-                                <rect key="frame" x="30" y="56" width="298" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你讲会拥有身份下的多链钱包，比如ETH、BTC" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZi-xj-VmJ">
+                                <rect key="frame" x="30" y="56" width="354" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
@@ -173,13 +173,13 @@
                                 <rect key="frame" x="30" y="157" width="354" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="重复输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="842-Ly-a9A">
                                 <rect key="frame" x="30" y="211" width="354" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMo-nu-Osa">
                                 <rect key="frame" x="30" y="732" width="354" height="46"/>
@@ -217,6 +217,7 @@
                             <constraint firstItem="jvY-lQ-6zG" firstAttribute="trailing" secondItem="oMo-nu-Osa" secondAttribute="trailing" constant="30" id="js2-Os-ybe"/>
                             <constraint firstItem="jvY-lQ-6zG" firstAttribute="trailing" secondItem="842-Ly-a9A" secondAttribute="trailing" constant="30" id="lbJ-cg-vIX"/>
                             <constraint firstItem="2Ca-Yk-HM9" firstAttribute="top" secondItem="jvY-lQ-6zG" secondAttribute="top" constant="20" id="ldJ-l1-85Z"/>
+                            <constraint firstItem="jvY-lQ-6zG" firstAttribute="trailing" secondItem="BZi-xj-VmJ" secondAttribute="trailing" constant="30" id="pTe-sl-J0Z"/>
                             <constraint firstItem="BZi-xj-VmJ" firstAttribute="leading" secondItem="2Ca-Yk-HM9" secondAttribute="leading" id="uKe-Qp-2IC"/>
                             <constraint firstItem="842-Ly-a9A" firstAttribute="top" secondItem="QMA-Xw-bSu" secondAttribute="bottom" constant="20" id="wEb-fu-L5w"/>
                             <constraint firstItem="jvY-lQ-6zG" firstAttribute="bottom" secondItem="oMo-nu-Osa" secondAttribute="bottom" constant="30" id="ySI-Td-jFj"/>
@@ -333,9 +334,28 @@
                     <view key="view" contentMode="scaleToFill" id="j6A-Sf-OxO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ltp-Oj-sX2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GZt-em-VI0" id="ZJu-nX-5h9"/>
+                                    <outlet property="delegate" destination="GZt-em-VI0" id="N0q-v8-uoI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yR6-gI-JTA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ltp-Oj-sX2" firstAttribute="leading" secondItem="yR6-gI-JTA" secondAttribute="leading" id="8d3-KB-3GM"/>
+                            <constraint firstItem="yR6-gI-JTA" firstAttribute="trailing" secondItem="Ltp-Oj-sX2" secondAttribute="trailing" id="Ykm-Uy-ZPi"/>
+                            <constraint firstItem="yR6-gI-JTA" firstAttribute="bottom" secondItem="Ltp-Oj-sX2" secondAttribute="bottom" id="b9x-ce-2VW"/>
+                            <constraint firstItem="Ltp-Oj-sX2" firstAttribute="top" secondItem="yR6-gI-JTA" secondAttribute="top" id="gCW-SB-EX5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ltp-Oj-sX2" id="5aH-PQ-i6m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxu-Ih-2MX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,8 +388,8 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="detail"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu1-TI-4RN">
-                                        <rect key="frame" x="329" y="72" width="50" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu1-TI-4RN">
+                                        <rect key="frame" x="359" y="72" width="20" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -433,6 +453,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iEF-Qc-BHg">
                                 <rect key="frame" x="0.0" y="236.5" width="414" height="625.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" systemColor="systemGray5Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dCn-bL-v0i" id="ZPY-QB-d0i"/>
                                     <outlet property="delegate" destination="dCn-bL-v0i" id="GNn-TR-sWY"/>
@@ -659,9 +680,9 @@
                                 <rect key="frame" x="15" y="456" width="384" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿工费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WV-Nl-CFn">
-                                        <rect key="frame" x="15" y="17" width="52" height="21"/>
+                                        <rect key="frame" x="15" y="17" width="100" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="52" id="xlh-UL-qsd"/>
+                                            <constraint firstAttribute="width" constant="100" id="xlh-UL-qsd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -673,7 +694,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYm-yO-eOe">
-                                        <rect key="frame" x="82" y="17" width="279" height="21"/>
+                                        <rect key="frame" x="130" y="17" width="231" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>

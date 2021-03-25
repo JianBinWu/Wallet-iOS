@@ -1,0 +1,43 @@
+
+//tabbar
+"tabbar_wallet" = "wallet";
+"tabbar_me" = "me";
+
+//remind
+"remind_inputIdentityName" = "Please enter the identity name";
+"remind_inputPassword" = "Please enter the password";
+"remind_confirmPassword" = "Please enter confirm password";
+"remind_passwordUnmatched" = "Password and confirm password do not match";
+"remind_MnemonicCreating" = "Mnemonic phrase is being generated";
+"remind_createMnemonicFail" = "Failed to generate mnemonic";
+"remind_addressAlreadyCopy" = "Wallet address has been copied";
+
+//wallet
+"wallet_identity" = "Identity wallet";
+"wallet_receiveCoin" = "Receive payment";
+"wallet_payCoin" = "payment";
+"wallet_address" = "address";
+
+//me
+"me_languages" = "Language";
+
+//transaction
+"transaction_title" = "Transfer";
+"transaction_remind_inputReceiveAddress" = "Please enter the receive address";
+"transaction_remind_inputPayAmount" = "Please enter payment amount";
+"transaction_remind_inputFee" = "Please enter the miner fee and it cannot be zero";
+"Transfer_RemindPasswordIncorrect" = "Incorrect password";
+"Transfer_Failed" = "Transfer failed";
+"Transfer_FeeNotZero" = "Miner fee cannot be 0";
+"Transfer_RemindNotSufficient" = "Insufficient balance";
+"Transfer_RequestTimeOut" = "Network request timed out";
+"Transfer_Success" = "transfer succeed";
+"Transfer_BadRequest" = "Network request failed";
+
+//receive
+"receive_remind_scanCode" = "Scan the QR code and transfer to";
+
+
+//btn
+"btn_cancel" = "cancel";
+"btn_confirm" = "confirm";

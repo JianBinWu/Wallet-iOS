@@ -1,0 +1,43 @@
+
+//tabbar
+"tabbar_wallet" = "지갑";
+"tabbar_me" = "나는";
+
+//remind
+"remind_inputIdentityName" = "신분 이름을 입력하세요";
+"remind_inputPassword" = "비밀번호를 입력하세요";
+"remind_confirmPassword" = "비밀번호 확인을 입력하세요";
+"remind_passwordUnmatched" = "비밀번호와 비밀번호 확인이 일치하지 않습니다.";
+"remind_MnemonicCreating" = "니모닉 문구가 생성되고 있습니다.";
+"remind_createMnemonicFail" = "니모닉을 생성하지 못했습니다.";
+"remind_addressAlreadyCopy" = "지갑 주소가 복사되었습니다.";
+
+//wallet
+"wallet_identity" = "신원 지갑";
+"wallet_receiveCoin" = "지불 받기";
+"wallet_payCoin" = "지불";
+"wallet_address" = "주소";
+
+//me
+"me_languages" = "다국어";
+
+//transaction
+"transaction_title" = "이전";
+"transaction_remind_inputReceiveAddress" = "수취인 주소를 입력하세요";
+"transaction_remind_inputPayAmount" = "결제 금액을 입력하세요";
+"transaction_remind_inputFee" = "광부 수수료를 입력하세요. 0이 될 수 없습니다.";
+"Transfer_RemindPasswordIncorrect" = "잘못된 비밀번호";
+"Transfer_Failed" = "전송 실패";
+"Transfer_FeeNotZero" = "광부 수수료는 0 일 수 없습니다.";
+"Transfer_RemindNotSufficient" = "잔액 불충분";
+"Transfer_RequestTimeOut" = "네트워크 요청 시간이 초과되었습니다.";
+"Transfer_Success" = "성공적인 전송";
+"Transfer_BadRequest" = "네트워크 요청 실패";
+
+//receive
+"receive_remind_scanCode" = "QR 코드를 스캔하여";
+
+
+//btn
+"btn_cancel" = "취소";
+"btn_confirm" = "결정";

@@ -66,6 +66,25 @@ struct UTXO {
       derivedPath: nil
     )
   }
+    
+    static func parseFormBlockcypher(_ raw: [String: Any]) -> UTXO? {
+        guard let txHash = raw["tx_hash"] as? String,
+              let vout = raw["tx_output_n"] as? Int,
+              let amount = raw["value"] as? Int64,
+              let scriptPubKey = raw["script"] as? String else {
+            return nil
+        }
+        
+        return self.init(
+            txHash: txHash,
+            vout: vout,
+            amount: amount,
+            address: "",
+            scriptPubKey: scriptPubKey,
+            derivedPath: nil
+        )
+    }
+    
   
   
 }
