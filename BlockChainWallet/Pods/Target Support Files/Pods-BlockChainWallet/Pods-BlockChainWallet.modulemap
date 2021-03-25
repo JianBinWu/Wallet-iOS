@@ -1,0 +1,6 @@
+module Pods_BlockChainWallet {
+  umbrella header "Pods-BlockChainWallet-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1 @@
+../../../CoreBitcoin/libscrypt/crypto_scrypt-hexconvert.h

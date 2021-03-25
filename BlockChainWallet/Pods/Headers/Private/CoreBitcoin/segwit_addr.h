@@ -1,0 +1,1 @@
+../../../CoreBitcoin/CoreBitcoin/segwit_addr.h
