@@ -7,9 +7,7 @@ I've already uploaded all files, just download and run it.
 
 ## Try the APP
 ### Create new Identity and backup mnemonic words
-<img src="SampleImage/CreateIdentity.PNG" width="300" alt="CreateIdentity"/>
-<img src="SampleImage/SetPassword.PNG" width="300" alt="SetPassword"/>
-<img src="SampleImage/Backup.PNG" width="300" alt="Backup"/>
+<img src="SampleImage/CreateIdentity.PNG" width="300" alt="CreateIdentity"/><img src="SampleImage/SetPassword.PNG" width="300" alt="SetPassword"/><img src="SampleImage/Backup.PNG" width="300" alt="Backup"/>
 
 ### Use Faucet to get test coins and check the balance on home page
 BTC faucet:  
