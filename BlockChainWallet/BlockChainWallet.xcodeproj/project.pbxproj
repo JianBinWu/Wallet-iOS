@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5B8F192ADF1AF7EA2AD273A /* libPods-BlockChainWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DDFBA07A8389F1B7FB2725 /* libPods-BlockChainWallet.a */; };
+		CE583632260DD88B006BDE1B /* RecoverIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */; };
 		CE86CE292604A695000AFD12 /* URLDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE282604A695000AFD12 /* URLDefine.swift */; };
 		CE86CE3026089A49000AFD12 /* LanguageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE2F26089A49000AFD12 /* LanguageSelectViewController.swift */; };
 		CE86CE3826089EDA000AFD12 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE86CE3A26089EDA000AFD12 /* Localization.strings */; };
@@ -64,6 +65,7 @@
 		CE86CE4526089F02000AFD12 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localization.strings; sourceTree = "<group>"; };
 		CE86CE5826098E8A000AFD12 /* LocalizationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTool.swift; sourceTree = "<group>"; };
 		CE86CE5C2609B71F000AFD12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverIdentityViewController.swift; sourceTree = "<group>"; };
 		CEC5747C25B5A36000B0E1C9 /* BlockChainWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChainWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				CEC5748325B5A36000B0E1C9 /* ViewController.swift */,
 				CEC5757E25B5BABF00B0E1C9 /* CreateIdentityViewController.swift */,
+				CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */,
 				CEC575A525B6A79700B0E1C9 /* BackUpMnemonicViewController.swift */,
 				CEC575AC25B6C17A00B0E1C9 /* WalletViewController.swift */,
 				CEC575AF25B6C18A00B0E1C9 /* MeViewController.swift */,
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF28EF025D51E640059988C /* WalletTableViewCell.swift in Sources */,
+				CE583632260DD88B006BDE1B /* RecoverIdentityViewController.swift in Sources */,
 				CE86CE3026089A49000AFD12 /* LanguageSelectViewController.swift in Sources */,
 				CE86CE5926098E8A000AFD12 /* LocalizationTool.swift in Sources */,
 				CEC575B025B6C18A00B0E1C9 /* MeViewController.swift in Sources */,

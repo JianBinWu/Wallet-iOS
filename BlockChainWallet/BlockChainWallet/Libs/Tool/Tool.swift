@@ -8,19 +8,16 @@
 
 import Foundation
 
-//展示提示
 func popToast(_ text: String) {
     keyWindow.makeToast(text, duration: 1, position: .center)
 }
 
-//debug下打印
 func dPrint(_ item: Any) {
     #if DEBUG
     print(item)
     #endif
 }
 
-//清除userDefault数据
 func clearAllUserDefaultsData(){
    let userDefaults = UserDefaults.standard
    let dics = userDefaults.dictionaryRepresentation()

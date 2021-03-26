@@ -119,23 +119,93 @@
                         <segue destination="MYR-hO-lTe" kind="show" id="fNW-uw-vpH"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="uJ2-nT-hWg">
-                    <connections>
-                        <segue destination="Cc7-Wk-0Ah" kind="show" id="Nvb-DJ-Gk2"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="uJ2-nT-hWg"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Recover Identity View Controller-->
         <scene sceneID="jHo-PA-3uM">
             <objects>
-                <viewController id="Cc7-Wk-0Ah" sceneMemberID="viewController">
+                <viewController id="Cc7-Wk-0Ah" customClass="RecoverIdentityViewController" customModule="BlockChainWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nHT-bR-U2N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恢复身份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3m-2h-vdR">
+                                <rect key="frame" x="30" y="64" width="354" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你讲会拥有身份下的多链钱包，比如ETH、BTC" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0c7-RR-nTr">
+                                <rect key="frame" x="30" y="100" width="354" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6YZ-ax-eFQ">
+                                <rect key="frame" x="30" y="147" width="354" height="120"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="DTh-Ss-iCV"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2J-WU-58I">
+                                <rect key="frame" x="30" y="287" width="354" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="重复输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fuv-Aj-DuK">
+                                <rect key="frame" x="30" y="341" width="354" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0f-sw-jfs">
+                                <rect key="frame" x="30" y="786" width="354" height="46"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="恢复身份">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="create:" destination="MYR-hO-lTe" eventType="touchUpInside" id="AfJ-gJ-KV5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fXQ-hV-AUm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="bottom" secondItem="l0f-sw-jfs" secondAttribute="bottom" constant="30" id="4eH-Iv-dkc"/>
+                            <constraint firstItem="6YZ-ax-eFQ" firstAttribute="top" secondItem="0c7-RR-nTr" secondAttribute="bottom" constant="30" id="Buc-9D-NlU"/>
+                            <constraint firstItem="W2J-WU-58I" firstAttribute="top" secondItem="6YZ-ax-eFQ" secondAttribute="bottom" constant="20" id="ICR-i6-vbp"/>
+                            <constraint firstItem="6YZ-ax-eFQ" firstAttribute="leading" secondItem="fXQ-hV-AUm" secondAttribute="leading" constant="30" id="PBH-4V-1xn"/>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="trailing" secondItem="N3m-2h-vdR" secondAttribute="trailing" constant="30" id="S9n-q6-gFO"/>
+                            <constraint firstItem="l0f-sw-jfs" firstAttribute="width" secondItem="l0f-sw-jfs" secondAttribute="height" multiplier="23:3" id="Tvj-21-alB"/>
+                            <constraint firstAttribute="trailing" secondItem="l0f-sw-jfs" secondAttribute="trailing" constant="30" id="VJd-oa-Cb9"/>
+                            <constraint firstItem="fuv-Aj-DuK" firstAttribute="top" secondItem="W2J-WU-58I" secondAttribute="bottom" constant="20" id="Wxs-dt-Dcc"/>
+                            <constraint firstItem="0c7-RR-nTr" firstAttribute="leading" secondItem="N3m-2h-vdR" secondAttribute="leading" id="Y1Q-v2-TJd"/>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="trailing" secondItem="W2J-WU-58I" secondAttribute="trailing" constant="30" id="cdG-Tq-i2d"/>
+                            <constraint firstItem="fuv-Aj-DuK" firstAttribute="leading" secondItem="fXQ-hV-AUm" secondAttribute="leading" constant="30" id="eG0-f4-COg"/>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="trailing" secondItem="fuv-Aj-DuK" secondAttribute="trailing" constant="30" id="nNB-bi-BXc"/>
+                            <constraint firstItem="N3m-2h-vdR" firstAttribute="top" secondItem="fXQ-hV-AUm" secondAttribute="top" constant="20" id="oKD-nh-F5f"/>
+                            <constraint firstItem="N3m-2h-vdR" firstAttribute="leading" secondItem="fXQ-hV-AUm" secondAttribute="leading" constant="30" id="pkD-Ia-pZv"/>
+                            <constraint firstItem="0c7-RR-nTr" firstAttribute="top" secondItem="N3m-2h-vdR" secondAttribute="bottom" constant="15" id="pzP-yB-UVL"/>
+                            <constraint firstItem="W2J-WU-58I" firstAttribute="leading" secondItem="fXQ-hV-AUm" secondAttribute="leading" constant="30" id="qlE-3b-7TE"/>
+                            <constraint firstItem="l0f-sw-jfs" firstAttribute="leading" secondItem="fXQ-hV-AUm" secondAttribute="leading" constant="30" id="rK8-98-kL2"/>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="trailing" secondItem="0c7-RR-nTr" secondAttribute="trailing" constant="30" id="wo5-rQ-jKv"/>
+                            <constraint firstItem="fXQ-hV-AUm" firstAttribute="trailing" secondItem="6YZ-ax-eFQ" secondAttribute="trailing" constant="30" id="xdU-aD-c7c"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I50-cU-aKo"/>
                 </viewController>
@@ -157,7 +227,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你讲会拥有身份下的多链钱包，比如ETH、BTC" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZi-xj-VmJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你将会拥有身份下的多链钱包，比如ETH、BTC" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZi-xj-VmJ">
                                 <rect key="frame" x="30" y="56" width="354" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
