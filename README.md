@@ -7,7 +7,7 @@ I've already uploaded all files, just download and run it.
 
 ## Try the APP
 ### Create new Identity and backup mnemonic words
-![CreateIdentity](SampleImage/CreateIdentity.PNG)  
+<img src="SampleImage/CreateIdentity.PNG" width="375" alt="CreateIdentity"/><br/>
 ![SetPassword](SampleImage/SetPassword.PNG)  
 ![Backup](SampleImage/Backup.PNG)  
 
