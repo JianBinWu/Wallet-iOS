@@ -97,3 +97,18 @@
 
 /* Class = "UILabel"; text = "备份助记词"; ObjectID = "xAn-yv-rOV"; */
 "xAn-yv-rOV.text" = "백업 니모닉";
+
+/* Class = "UIButton"; normalTitle = "恢复身份"; ObjectID = "l0f-sw-jfs"; */
+"l0f-sw-jfs.normalTitle" = "신원 복원";
+
+/* Class = "UILabel"; text = "恢复身份"; ObjectID = "N3m-2h-vdR"; */
+"N3m-2h-vdR.text" = "신원 복원";
+
+/* Class = "UILabel"; text = "你讲会拥有身份下的多链钱包，比如ETH、BTC"; ObjectID = "0c7-RR-nTr"; */
+"0c7-RR-nTr.text" = "ETH, BTC와 같은 신원으로 멀티 체인 지갑을 갖게됩니다.";
+
+/* Class = "UITextField"; placeholder = "重复输入密码"; ObjectID = "fuv-Aj-DuK"; */
+"fuv-Aj-DuK.placeholder" = "비밀번호 반복";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "W2J-WU-58I"; */
+"W2J-WU-58I.placeholder" = "암호";

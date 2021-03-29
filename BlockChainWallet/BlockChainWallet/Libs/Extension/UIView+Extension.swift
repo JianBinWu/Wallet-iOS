@@ -3,7 +3,7 @@
 //  HuanXiRead
 //
 //  Created by user on 2020/7/2.
-//  Copyright © 2020 DaLianJieJing. All rights reserved.
+//  Copyright © 2020 Steven Wu. All rights reserved.
 //
 
 import UIKit

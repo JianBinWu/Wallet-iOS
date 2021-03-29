@@ -11,6 +11,10 @@
 "remind_MnemonicCreating" = "니모닉 문구가 생성되고 있습니다.";
 "remind_createMnemonicFail" = "니모닉을 생성하지 못했습니다.";
 "remind_addressAlreadyCopy" = "지갑 주소가 복사되었습니다.";
+"remind_inputMnemonic" = "니모닉 문구를 입력하세요";
+"remind_inputMnemonicPlaceholder" = "니모닉 단어를 공백으로 구분하여 입력하세요.";
+"remind_MnemonicRecovering" = "니모닉 문구로 지갑 복구";
+"remind_recoverIdentityFail" = "ID 지갑을 복원하지 못했습니다.";
 
 //wallet
 "wallet_identity" = "신원 지갑";

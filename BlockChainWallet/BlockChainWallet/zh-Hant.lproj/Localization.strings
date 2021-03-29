@@ -11,6 +11,10 @@
 "remind_MnemonicCreating" = "正在生成助記詞";
 "remind_createMnemonicFail" = "生成助記詞失敗";
 "remind_addressAlreadyCopy" = "錢包地址已復制";
+"remind_inputMnemonic" = "請輸入助記詞";
+"remind_inputMnemonicPlaceholder" = "輸入助記單詞，並使用空格分隔";
+"remind_MnemonicRecovering" = "正在通過助記詞恢復錢包";
+"remind_recoverIdentityFail" = "恢復身份錢包失敗";
 
 //wallet
 "wallet_identity" = "身份錢包";

@@ -11,6 +11,10 @@
 "remind_MnemonicCreating" = "Mnemonic phrase is being generated";
 "remind_createMnemonicFail" = "Failed to generate mnemonic";
 "remind_addressAlreadyCopy" = "Wallet address has been copied";
+"remind_inputMnemonic" = "Please enter the mnemonic phrase";
+"remind_inputMnemonicPlaceholder" = "Enter mnemonic words, separated by spaces";
+"remind_MnemonicRecovering" = "Recovering wallet";
+"remind_recoverIdentityFail" = "Failed to restore identity wallet";
 
 //wallet
 "wallet_identity" = "Identity wallet";

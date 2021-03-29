@@ -28,7 +28,6 @@ If you use pod to re-import third-party frameworks, the bigInt framework will ha
 
 ## TODO
 - [ ] Transfer USDT on Omni
-- [ ] Recover Identity
 - [ ] Switch address mode(Legal address or Segwit address)
 - [ ] Import wallet from mnemonic words
 - [ ] Import BTC wallet from WIF

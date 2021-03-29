@@ -11,6 +11,10 @@
 "remind_MnemonicCreating" = "ニーモニックフレーズが生成されています";
 "remind_createMnemonicFail" = "ニーモニックの生成に失敗しました";
 "remind_addressAlreadyCopy" = "ウォレットアドレスがコピーされました";
+"remind_inputMnemonic" = "ニーモニックフレーズを入力してください";
+"remind_inputMnemonicPlaceholder" = "スペースで区切ってニーモニック単語を入力します";
+"remind_MnemonicRecovering" = "ニーモニックフレーズでウォレットを回復する";
+"remind_recoverIdentityFail" = "IDウォレットの復元に失敗しました";
 
 //wallet
 "wallet_identity" = "アイデンティティウォレット";

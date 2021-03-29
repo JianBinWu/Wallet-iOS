@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A5B8F192ADF1AF7EA2AD273A /* libPods-BlockChainWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DDFBA07A8389F1B7FB2725 /* libPods-BlockChainWallet.a */; };
-		CE583632260DD88B006BDE1B /* RecoverIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */; };
+		CE682E2B260DE2790025120A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5748525B5A36000B0E1C9 /* Main.storyboard */; };
 		CE86CE292604A695000AFD12 /* URLDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE282604A695000AFD12 /* URLDefine.swift */; };
 		CE86CE3026089A49000AFD12 /* LanguageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE2F26089A49000AFD12 /* LanguageSelectViewController.swift */; };
 		CE86CE3826089EDA000AFD12 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE86CE3A26089EDA000AFD12 /* Localization.strings */; };
 		CE86CE5926098E8A000AFD12 /* LocalizationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE5826098E8A000AFD12 /* LocalizationTool.swift */; };
+		CEA2F192260DE6D600A2D63A /* RecoverIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2F190260DE6D600A2D63A /* RecoverIdentityViewController.swift */; };
+		CEA2F1982611651E00A2D63A /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */; };
 		CEC5748025B5A36000B0E1C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */; };
 		CEC5748225B5A36000B0E1C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */; };
 		CEC5748425B5A36000B0E1C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5748325B5A36000B0E1C9 /* ViewController.swift */; };
-		CEC5748725B5A36000B0E1C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5748525B5A36000B0E1C9 /* Main.storyboard */; };
 		CEC5748925B5A36400B0E1C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC5748825B5A36400B0E1C9 /* Assets.xcassets */; };
 		CEC5748C25B5A36400B0E1C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5748A25B5A36400B0E1C9 /* LaunchScreen.storyboard */; };
 		CEC5757725B5B72C00B0E1C9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5757625B5B72C00B0E1C9 /* UIView+Extension.swift */; };
@@ -48,9 +49,9 @@
 		08DDFBA07A8389F1B7FB2725 /* libPods-BlockChainWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlockChainWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51176D45E8610B6CBC4C56D6 /* Pods-BlockChainWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChainWallet.debug.xcconfig"; path = "Target Support Files/Pods-BlockChainWallet/Pods-BlockChainWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		97919FA9922434339CC9CCC3 /* Pods-BlockChainWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChainWallet.release.xcconfig"; path = "Target Support Files/Pods-BlockChainWallet/Pods-BlockChainWallet.release.xcconfig"; sourceTree = "<group>"; };
+		CE682E2E260DE3D90025120A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		CE86CE282604A695000AFD12 /* URLDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDefine.swift; sourceTree = "<group>"; };
 		CE86CE2F26089A49000AFD12 /* LanguageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectViewController.swift; sourceTree = "<group>"; };
-		CE86CE3226089DF1000AFD12 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		CE86CE3326089DF3000AFD12 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		CE86CE3926089EDA000AFD12 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
 		CE86CE3C26089EE0000AFD12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
@@ -65,7 +66,8 @@
 		CE86CE4526089F02000AFD12 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localization.strings; sourceTree = "<group>"; };
 		CE86CE5826098E8A000AFD12 /* LocalizationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTool.swift; sourceTree = "<group>"; };
 		CE86CE5C2609B71F000AFD12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverIdentityViewController.swift; sourceTree = "<group>"; };
+		CEA2F190260DE6D600A2D63A /* RecoverIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverIdentityViewController.swift; sourceTree = "<group>"; };
+		CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		CEC5747C25B5A36000B0E1C9 /* BlockChainWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChainWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				CEC5757925B5B89F00B0E1C9 /* UIColor+Extension.swift */,
 				CEC5757625B5B72C00B0E1C9 /* UIView+Extension.swift */,
+				CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -183,7 +186,7 @@
 			children = (
 				CEC5748325B5A36000B0E1C9 /* ViewController.swift */,
 				CEC5757E25B5BABF00B0E1C9 /* CreateIdentityViewController.swift */,
-				CEBA4E74260DD59D00D65796 /* RecoverIdentityViewController.swift */,
+				CEA2F190260DE6D600A2D63A /* RecoverIdentityViewController.swift */,
 				CEC575A525B6A79700B0E1C9 /* BackUpMnemonicViewController.swift */,
 				CEC575AC25B6C17A00B0E1C9 /* WalletViewController.swift */,
 				CEC575AF25B6C18A00B0E1C9 /* MeViewController.swift */,
@@ -304,9 +307,9 @@
 				CEC5748C25B5A36400B0E1C9 /* LaunchScreen.storyboard in Resources */,
 				CE86CE3826089EDA000AFD12 /* Localization.strings in Resources */,
 				CEC5748925B5A36400B0E1C9 /* Assets.xcassets in Resources */,
+				CE682E2B260DE2790025120A /* Main.storyboard in Resources */,
 				CEF28EF125D51E640059988C /* WalletTableViewCell.xib in Resources */,
 				CEC575B525B6D82E00B0E1C9 /* CoinTableViewCell.xib in Resources */,
-				CEC5748725B5A36000B0E1C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,12 +380,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF28EF025D51E640059988C /* WalletTableViewCell.swift in Sources */,
-				CE583632260DD88B006BDE1B /* RecoverIdentityViewController.swift in Sources */,
+				CEA2F192260DE6D600A2D63A /* RecoverIdentityViewController.swift in Sources */,
 				CE86CE3026089A49000AFD12 /* LanguageSelectViewController.swift in Sources */,
 				CE86CE5926098E8A000AFD12 /* LocalizationTool.swift in Sources */,
 				CEC575B025B6C18A00B0E1C9 /* MeViewController.swift in Sources */,
 				CEC575A625B6A79700B0E1C9 /* BackUpMnemonicViewController.swift in Sources */,
 				CEC5748425B5A36000B0E1C9 /* ViewController.swift in Sources */,
+				CEA2F1982611651E00A2D63A /* UITextView+Extension.swift in Sources */,
 				CEC575A925B6BFB900B0E1C9 /* CustomTabBarViewController.swift in Sources */,
 				CEC5748025B5A36000B0E1C9 /* AppDelegate.swift in Sources */,
 				CEF28F1025DD7DA00059988C /* TransferFunction.swift in Sources */,
@@ -425,11 +429,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				CEC5748625B5A36000B0E1C9 /* Base */,
-				CE86CE3226089DF1000AFD12 /* zh-Hans */,
 				CE86CE3D26089EF0000AFD12 /* zh-Hant */,
 				CE86CE4026089EF8000AFD12 /* ko */,
 				CE86CE4326089F02000AFD12 /* ja */,
 				CE86CE5C2609B71F000AFD12 /* en */,
+				CE682E2E260DE3D90025120A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

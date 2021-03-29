@@ -1,4 +1,7 @@
 
+/* Class = "UILabel"; text = "你讲会拥有身份下的多链钱包，比如ETH、BTC"; ObjectID = "0c7-RR-nTr"; */
+"0c7-RR-nTr.text" = "你将会拥有身份下的多链钱包，比如ETH、BTC";
+
 /* Class = "UILabel"; text = "创建身份"; ObjectID = "2Ca-Yk-HM9"; */
 "2Ca-Yk-HM9.text" = "创建身份";
 
@@ -8,7 +11,7 @@
 /* Class = "UILabel"; text = "矿工费"; ObjectID = "9WV-Nl-CFn"; */
 "9WV-Nl-CFn.text" = "矿工费";
 
-/* Class = "UILabel"; text = "你讲会拥有身份下的多链钱包，比如ETH、BTC"; ObjectID = "BZi-xj-VmJ"; */
+/* Class = "UILabel"; text = "你将会拥有身份下的多链钱包，比如ETH、BTC"; ObjectID = "BZi-xj-VmJ"; */
 "BZi-xj-VmJ.text" = "你将会拥有身份下的多链钱包，比如ETH、BTC";
 
 /* Class = "UILabel"; text = "扫二维码，转入ETH"; ObjectID = "BhK-H5-ii5"; */
@@ -25,6 +28,9 @@
 
 /* Class = "UIButton"; normalTitle = "管理"; ObjectID = "KgW-Qo-Whm"; */
 "KgW-Qo-Whm.normalTitle" = "管理";
+
+/* Class = "UILabel"; text = "恢复身份"; ObjectID = "N3m-2h-vdR"; */
+"N3m-2h-vdR.text" = "恢复身份";
 
 /* Class = "UITextField"; placeholder = "备注"; ObjectID = "N8P-L2-ikK"; */
 "N8P-L2-ikK.placeholder" = "备注";
@@ -47,6 +53,9 @@
 /* Class = "UIButton"; normalTitle = "复制"; ObjectID = "VNM-ZT-7P5"; */
 "VNM-ZT-7P5.normalTitle" = "复制";
 
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "W2J-WU-58I"; */
+"W2J-WU-58I.placeholder" = "密码";
+
 /* Class = "UILabel"; text = "·  请勿将助记词在联网环境下分享和存储，比如邮件、相册、社交应用等。"; ObjectID = "a0h-Tl-Sko"; */
 "a0h-Tl-Sko.text" = "·  请勿将助记词在联网环境下分享和存储，比如邮件、相册、社交应用等。";
 
@@ -62,6 +71,9 @@
 /* Class = "UILabel"; text = "BTC"; ObjectID = "dz2-N4-hWP"; */
 "dz2-N4-hWP.text" = "BTC";
 
+/* Class = "UITextField"; placeholder = "重复输入密码"; ObjectID = "fuv-Aj-DuK"; */
+"fuv-Aj-DuK.placeholder" = "重复输入密码";
+
 /* Class = "UILabel"; text = "请按顺序抄写助记词，请确保备份正确"; ObjectID = "h9L-48-wcl"; */
 "h9L-48-wcl.text" = "请按顺序抄写助记词，请确保备份正确";
 
@@ -70,6 +82,9 @@
 
 /* Class = "UILabel"; text = "恢复身份"; ObjectID = "kgq-ky-S2I"; */
 "kgq-ky-S2I.text" = "恢复身份";
+
+/* Class = "UIButton"; normalTitle = "恢复身份"; ObjectID = "l0f-sw-jfs"; */
+"l0f-sw-jfs.normalTitle" = "恢复身份";
 
 /* Class = "UIButton"; normalTitle = "已确认备份"; ObjectID = "mUr-X4-Xep"; */
 "mUr-X4-Xep.normalTitle" = "已确认备份";
@@ -92,7 +107,7 @@
 /* Class = "UIButton"; normalTitle = "分享"; ObjectID = "sze-yz-Vbf"; */
 "sze-yz-Vbf.normalTitle" = "分享";
 
-/* Class = "UILabel"; text = "￥0"; ObjectID = "vu1-TI-4RN"; */
+/* Class = "UILabel"; text = "0"; ObjectID = "vu1-TI-4RN"; */
 "vu1-TI-4RN.text" = "0";
 
 /* Class = "UILabel"; text = "备份助记词"; ObjectID = "xAn-yv-rOV"; */
