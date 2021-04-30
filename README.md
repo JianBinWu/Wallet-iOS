@@ -14,6 +14,8 @@ BTC faucet:
 https://coinfaucet.eu/en/btc-testnet/  
 ETH faucet:  
 https://faucet.kovan.network/  
+Omni Token faucet:
+Please transfer some Bitcoin test coins to the address "moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP", and then after the transaction is confirmed, there will be some omni on your address, and the conversion ratio is 1 BTC = 100 OMNI.
 <img src="SampleImage/HomePage.PNG" width="375" alt="HomePage"/>
 
 ### Transfer test and check the transaction result on explore
@@ -27,7 +29,6 @@ https://kovan.etherscan.io/
 If you use pod to re-import third-party frameworks, the bigInt framework will have problems due to version reasons, please follow the simulator prompts to modify the code.  
 
 ## TODO
-- [ ] Transfer USDT on Omni
 - [ ] Switch address mode(Legal address or Segwit address)
 - [ ] Import wallet from mnemonic words
 - [ ] Import BTC wallet from WIF
@@ -36,6 +37,8 @@ If you use pod to re-import third-party frameworks, the bigInt framework will ha
 - [ ] Select or custom miner fee for different transaction speed
 - [ ] Backup mnemonic words
 - [ ] Scan code
+- [ ] Derive subAddress
+- [ ] DApp browser
 
 ## Thanks and more info
 Thanks imToken open source.

@@ -22,4 +22,5 @@ let chainTypeTxtDic: [ChainType: String] = [.btc: "BTC", .eth: "ETH"]
 let chainTypeImgDic: [ChainType: String] = [.btc: "btcBadge", .eth: "ethBadge"]
 
 //coinName
-let coinNameLogoDic: [CoinName: String] = [.btc: "btcLogo", .eth: "ethLogo", .usdtErc20: "usdt"]
+let coinNameLogoDic: [CoinName: String] = [.btc: "btcLogo", .eth: "ethLogo", .usdtErc20: "usdt", .usdtOmni: "usdtOmni"]
+let coinNameDic: [CoinName: String] = [.btc: "BTC", .eth: "ETH", .usdtErc20: "USDT", .usdtOmni: "USDT"]

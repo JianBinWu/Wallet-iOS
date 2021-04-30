@@ -24,7 +24,7 @@ class CoinTableViewCell: UITableViewCell {
     
     func updateUI(coinName: CoinName) {
         coinImgV.image = UIImage(named: coinNameLogoDic[coinName]!)
-        coinNameLab.text = coinName.rawValue
+        coinNameLab.text = coinNameDic[coinName]
     }
     
     

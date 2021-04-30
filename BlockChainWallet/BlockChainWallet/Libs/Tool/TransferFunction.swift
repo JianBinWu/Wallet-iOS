@@ -41,11 +41,11 @@ func transferEth(fromAddress: String, toAddress: String, fee: String, gasLimit: 
         let toAddress = toAddress.removePrefix0xIfNeeded()
         //get nonce from api
         getEthTxNonce(address: fromAddress.removePrefix0xIfNeeded())
-        //计算金额和矿工费
+        //calculate amount and fee
         let amount = NSDecimalNumber(string: amountStr).multiplying(byPowerOf10: 18)
         let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 0, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
         let weiGasPrice = NSDecimalNumber(string: fee).multiplying(byPowerOf10: 18).dividing(by: NSDecimalNumber(value:gasLimit)).rounding(accordingToBehavior: handler)
-        //开始签名转账
+        //start sign and transaction
         let ethWallet = try WalletManager.findWalletByAddress(fromAddress, on: .eth)
         // chainID 42:kovan 0 testnet, 1 mainnet
         let signedResult = try WalletManager.ethSignTransaction(walletID: ethWallet.walletID, nonce: String(nonce), gasPrice: weiGasPrice.stringValue, gasLimit: "\(gasLimit)", to: toAddress, value: amount.stringValue, data: "", password: password, chainID: isMainNet ? 1 : 42)
@@ -107,6 +107,42 @@ func transferBTC(fromAddress: String, toAddress: String, password: String, amoun
         return "Transfer_RemindPasswordIncorrect"
     } catch GenericError.amountLessThanMinimum {
         return "Transfer_RemindNotSufficient"
+    }catch {
+        print(error)
+        return "Transfer_Failed"
+    }
+}
+
+func transferOmniToken(fromAddress: String, toAddress: String, password: String, amountStr: String, feeStr: String) -> String  {
+    do {
+        let toAddress = toAddress.removePrefix0xIfNeeded()
+        var amount = NSDecimalNumber(string: amountStr)
+        amount = amount.multiplying(byPowerOf10: 8)
+        var fee = NSDecimalNumber(string: feeStr)
+        fee = fee.multiplying(byPowerOf10: 8)
+        
+        if fee.int64Value == 0 {
+            return "Transfer_FeeNotZero"
+        }
+        
+        let btcWallet = try WalletManager.findWalletByAddress(fromAddress, on: .btc)
+        let utxoReq = String(format: btcUtxoUrl, fromAddress)
+        let unspentsStr = get(utxoReq)
+        let json = try unspentsStr.tk_toJSON()
+        let unspentsJson = json["txrefs"] as? [JSONObject] ?? [JSONObject]()
+        let signed = try WalletManager.omniTokenSignTransaction(walletID: btcWallet.walletID, to: toAddress, amount: amount.int64Value, fee: fee.int64Value, password: password, outputs: unspentsJson, changeIdx: 0, isTestnet: !isMainNet, segWit: .p2wpkh)
+        
+        let signedResult = signed.signedTx
+        let pushTxReq = "\(btcPushTx)"
+        let reqBody: Parameters = [
+            "tx": signedResult
+        ]
+        let result = pushBtcTransferInfo(pushTxReq, body: reqBody)
+        return result
+    } catch PasswordError.incorrect {
+        return "Transfer_RemindPasswordIncorrect"
+    } catch GenericError.amountLessThanMinimum {
+        return "Transfer_RemindToLow"
     }catch {
         print(error)
         return "Transfer_Failed"

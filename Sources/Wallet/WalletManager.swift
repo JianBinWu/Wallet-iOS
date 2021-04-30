@@ -208,6 +208,81 @@ public struct WalletManager {
       return try signer.sign()
     }
   }
+    
+    public static func omniTokenSignTransaction(
+        walletID: String,
+        to: String,
+        amount: Int64,
+        fee: Int64,
+        password: String,
+        outputs: [[String: Any]],
+        changeIdx: Int,
+        isTestnet: Bool,
+        segWit: SegWit
+    ) throws -> TransactionSignedResult {
+        let miniBtc: Int64 = 546
+        guard let wallet = Identity.currentIdentity?.findWalletByWalletID(walletID) else {
+            throw GenericError.walletNotFound
+        }
+        
+        guard let toAddress = BTCAddress(string: to) else {
+            throw AddressError.invalid
+        }
+        
+        var unspents = [UTXO]()
+        var unspentAmount:Int64 = 0
+        
+        for output in outputs {
+          let utxo: UTXO?
+          // result form api.blockchain.info contains 'tx_hash_big_endian'
+          if output["tx_hash_big_endian"] != nil {
+            utxo = UTXO.parseFormBlockchain(output, isTestNet: isTestnet, isSegWit: segWit.isSegWit)
+          } else {
+            utxo = UTXO.parseFormBlockcypher(output)
+          }
+          guard let unspent = utxo else {
+            throw GenericError.paramError
+          }
+          
+          unspents.append(unspent)
+          unspentAmount += unspent.amount
+          
+          if unspentAmount >= (miniBtc + fee) {
+            break
+          }
+        }
+        
+        let changeKey: BTCKey
+        let privateKeys: [BTCKey]
+        
+        if wallet.imTokenMeta.source == .wif {
+            let wif = try wallet.privateKey(password: password)
+            changeKey = BTCKey(wif: wif)
+            privateKeys = Array(repeating: changeKey, count: outputs.count)
+        } else {
+            let extendedKey = try wallet.privateKey(password: password)
+            guard let keychain = BTCKeychain(extendedKey: extendedKey), let key = keychain.externalKey(at: UInt32(changeIdx)) else {
+                throw GenericError.unknownError
+            }
+            changeKey = key
+            privateKeys = unspents.map { output in
+                let key: BTCKey
+                if let derivedPath = output.derivedPath {
+                    let pathWithSlash = "/\(derivedPath)"
+                    key = keychain.key(withPath: pathWithSlash)!
+                } else {
+                    key = BTCMnemonicKeystore.findUtxoKeyByScript(output.scriptPubKey, at: keychain, isSegWit: segWit.isSegWit)!
+                }
+                key.isPublicKeyCompressed = true
+                return key
+            }
+        }
+        
+        let changeAddress = changeKey.address(on: isTestnet ? .testnet : .mainnet, segWit: segWit)
+        let signer = try BTCTransactionSigner(utxos: unspents, keys: privateKeys, amount: amount, fee: fee, toAddress: toAddress, changeAddress: changeAddress)
+        
+        return try signer.signOmniToken(isSegWit: segWit.isSegWit)
+    }
  
 
   /// Allow BTC wallet to switch between legacy/SegWit.

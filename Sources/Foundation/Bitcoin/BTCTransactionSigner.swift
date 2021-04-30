@@ -160,5 +160,36 @@ class BTCTransactionSigner {
     let wtxID = rawTx.witnessTransactionID!
     return TransactionSignedResult(signedTx: signedTx, txHash: txHash, wtxID: wtxID)
   }
+    
+    func signOmniToken(isSegWit: Bool) throws -> TransactionSignedResult {
+        let miniBtc: Int64 = 546
+        let propertyId = changeAddress.isTestnet ? 2 : 31//31: usdt, 2: test omni token
+        let rawTx = BTCTransaction()
+        if isSegWit {
+            rawTx.version = 2
+        }
+        
+        let totalAmount = rawTx.calculateTotalSpend(utxos: utxos)
+        if totalAmount < fee + miniBtc {
+            throw GenericError.insufficientFunds
+        }
+        
+        rawTx.addInputs(from: utxos, isSegWit: isSegWit)
+        rawTx.addOutput(BTCTransactionOutput(value: miniBtc, address: toAddress))
+        let usdtHex = "0x6a146f6d6e69" + String(format: "%016x", propertyId) + String(format: "%016x", amount)
+        rawTx.addOutput(BTCTransactionOutput(value: 0, script: BTCScript(string: usdtHex)))
+        
+        let changeAmount = totalAmount - fee - miniBtc
+        if changeAmount >= dustThreshold {
+            rawTx.addOutput(BTCTransactionOutput(value: changeAmount, address: changeAddress))
+        }
+        
+        try rawTx.sign(with: keys, isSegWit: isSegWit)
+        
+        let signedTx = isSegWit ? rawTx.hexWithWitness! : rawTx.hex!
+        let txHash = rawTx.transactionID!
+        let wtxID = rawTx.witnessTransactionID!
+        return isSegWit ? TransactionSignedResult(signedTx: signedTx, txHash: txHash, wtxID: wtxID) : TransactionSignedResult(signedTx: signedTx, txHash: txHash)
+    }
 
 }

@@ -10,6 +10,6 @@ import Foundation
 enum CoinName: String {
     case btc = "BTC"
     case eth = "ETH"
-    case usdtOmni = "USDTomni"
-    case usdtErc20 = "USDT"
+    case usdtOmni = "USDT_Omni"
+    case usdtErc20 = "USDT_Erc20"
 }

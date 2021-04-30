@@ -9,7 +9,7 @@ import UIKit
 
 class WalletViewController: UIViewController {
     
-    private let coinNameDic:[ChainType: [CoinName]] = [.btc: [.btc], .eth: [.eth, .usdtErc20]]
+    private let coinNameDic:[ChainType: [CoinName]] = [.btc: [.btc, .usdtOmni], .eth: [.eth, .usdtErc20]]
     
     @IBOutlet weak var chainTypeBgView: UIView!
     @IBOutlet weak var chainTypeNameLab: UILabel!
