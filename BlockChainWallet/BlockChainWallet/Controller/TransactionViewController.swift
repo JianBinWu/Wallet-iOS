@@ -28,7 +28,7 @@ class TransactionViewController: UIViewController {
     func initUI() {
         title = "transaction_title".localized
         receiveAddressTxtF.placeholder = "\(coinName.rawValue) \("wallet_address".localized)"
-        feeUnitLab.text = chainType == .btc ? "BTC" : "ETH"
+        feeUnitLab.text = chainCoinNameDic[chainType]
     }
     
     func initData() {
@@ -97,8 +97,8 @@ class TransactionViewController: UIViewController {
             switch self!.coinName {
             case .btc:
                 result = transferBTC(fromAddress: self!.fromAddress, toAddress: toAddress, password: pwd!, amountStr: amountStr, feeStr: feeStr)
-            case .eth:
-                result = transferEth(fromAddress: self!.fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 21000, password: pwd!, amountStr: amountStr)
+            case .eth, .ht, .bnb:
+                result = transferMainCoin(chainType: self!.chainType, fromAddress: self!.fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 21000, password: pwd!, amountStr: amountStr)
             case .usdtErc20:
                 result = transferEthToken(tokenId: "0xdac17f958d2ee523a2206206994597c13d831ec7", fromAddress: self!.fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 60000, password: pwd!, amountStr: amountStr, decimals: 8)
             case .usdtOmni:

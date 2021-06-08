@@ -9,15 +9,15 @@ import UIKit
 
 class WalletListViewController: UIViewController {
     
-    private let coinTypeImgArr = ["walletIdentity", "walletBitcoin", "walletEth"]
-    private let chainTypeArr: [[ChainType]] = [[.btc, .eth], [.btc], [.eth]]
+    private let coinTypeImgArr = ["walletIdentity", "walletBitcoin", "walletEth", "walletHeco", "walletBsc"]
+    private let chainTypeArr: [[ChainType]] = [[.btc, .eth, .heco, .bsc], [.btc], [.eth], [.heco], [.bsc]]
     
     @IBOutlet weak var coinTypeTableView: UITableView!
     @IBOutlet weak var walletTableView: UITableView!
     
     var selectChainTypeBlock: ((_: ChainType)->())!
     
-    var coinTypeSelectedIndexPath = IndexPath(row: 0, section: 0)//0:all 1:BTC 2:ETH
+    var coinTypeSelectedIndexPath = IndexPath(row: 0, section: 0)//0:all 1:BTC 2:ETH 3:HECO 4:BSC
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +47,10 @@ extension WalletListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView === coinTypeTableView {
-            return 3
+            return chainTypeArr[0].count + 1
         }
         if coinTypeSelectedIndexPath.row == 0 {
-            return 2
+            return chainTypeArr[0].count
         } else {
             return 1
         }

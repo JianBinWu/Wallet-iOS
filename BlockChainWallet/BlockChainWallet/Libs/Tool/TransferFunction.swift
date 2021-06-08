@@ -14,7 +14,7 @@ func transferEthToken(tokenId: String, fromAddress: String, toAddress: String, f
         let toAddress = toAddress.removePrefix0xIfNeeded()
         //get nonce from api
         let deci = isMainNet ? decimals : 6
-        getEthTxNonce(address: fromAddress.removePrefix0xIfNeeded())
+        getTxNonce(chainType: .eth, address: fromAddress.removePrefix0xIfNeeded())
         var amount = NSDecimalNumber(string: amountStr)
         amount = amount.multiplying(byPowerOf10: Int16(deci))
         let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 0, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
@@ -25,7 +25,7 @@ func transferEthToken(tokenId: String, fromAddress: String, toAddress: String, f
         let data = "0xa9059cbb\(BigNumber.parse(toAddress, padding: true, paddingLen: 32).hexString())\(BigNumber.parse("0x\(tokenAmountHexStr)", padding: true, paddingLen: 32).hexString())"
         let tId = isMainNet ? tokenId : "0xd85476c906b5301e8e9eb58d174a6f96b9dfc5ee"
         let signedResult = try WalletManager.ethSignTransaction(walletID: ethWallet.walletID, nonce: String(nonce), gasPrice: weiGasPrice.stringValue, gasLimit: "\(gasLimit)", to: tId, value: "0", data: data, password: password, chainID: isMainNet ? 1 : 42)
-        let requestUrl = String(format: ethPushUrl, signedResult.signedTx) 
+        let requestUrl = String(format: "\(chainUrlDic[.eth]!)\(pushUrl)\(apiKeyDic[.eth]!)", signedResult.signedTx)
         let result = pushEthTransferInfo(requestUrl)
         return result
     } catch PasswordError.incorrect {
@@ -36,20 +36,20 @@ func transferEthToken(tokenId: String, fromAddress: String, toAddress: String, f
     }
 }
 
-func transferEth(fromAddress: String, toAddress: String, fee: String, gasLimit: Int, password: String, amountStr: String) -> String {
+func transferMainCoin(chainType: ChainType, fromAddress: String, toAddress: String, fee: String, gasLimit: Int, password: String, amountStr: String) -> String {
     do {
+        let txPushUrl = "\(chainUrlDic[chainType]!)\(pushUrl)\(apiKeyDic[chainType]!)"
         let toAddress = toAddress.removePrefix0xIfNeeded()
         //get nonce from api
-        getEthTxNonce(address: fromAddress.removePrefix0xIfNeeded())
+        getTxNonce(chainType: chainType, address: fromAddress.removePrefix0xIfNeeded())
         //calculate amount and fee
         let amount = NSDecimalNumber(string: amountStr).multiplying(byPowerOf10: 18)
         let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 0, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
         let weiGasPrice = NSDecimalNumber(string: fee).multiplying(byPowerOf10: 18).dividing(by: NSDecimalNumber(value:gasLimit)).rounding(accordingToBehavior: handler)
         //start sign and transaction
-        let ethWallet = try WalletManager.findWalletByAddress(fromAddress, on: .eth)
-        // chainID 42:kovan 0 testnet, 1 mainnet
-        let signedResult = try WalletManager.ethSignTransaction(walletID: ethWallet.walletID, nonce: String(nonce), gasPrice: weiGasPrice.stringValue, gasLimit: "\(gasLimit)", to: toAddress, value: amount.stringValue, data: "", password: password, chainID: isMainNet ? 1 : 42)
-        let requestUrl = String(format: ethPushUrl, signedResult.signedTx) 
+        let wallet = try WalletManager.findWalletByAddress(fromAddress, on: chainType)
+        let signedResult = try WalletManager.ethSignTransaction(walletID: wallet.walletID, nonce: String(nonce), gasPrice: weiGasPrice.stringValue, gasLimit: "\(gasLimit)", to: toAddress, value: amount.stringValue, data: "", password: password, chainID: chainIdDic[chainType]!)
+        let requestUrl = String(format: txPushUrl, signedResult.signedTx)
         let result = pushEthTransferInfo(requestUrl)
         return result
     } catch PasswordError.incorrect {
@@ -60,9 +60,10 @@ func transferEth(fromAddress: String, toAddress: String, fee: String, gasLimit: 
     }
 }
 
-func getEthTxNonce(address: String) {
+func getTxNonce(chainType: ChainType, address: String) {
+    let txNonceUrl = "\(chainUrlDic[chainType]!)\(nonceUrl)\(apiKeyDic[chainType]!)"
     let semaphore = DispatchSemaphore(value: 0)
-    AF.request(String(format: ethNonceUrl, address)).responseJSON { (response) in
+    AF.request(String(format: txNonceUrl, address)).responseJSON { (response) in
         switch response.result {
         case .success:
             let dic = response.value as? [String: Any]
@@ -77,6 +78,8 @@ func getEthTxNonce(address: String) {
     }
     semaphore.wait()
 }
+
+
 
 func transferBTC(fromAddress: String, toAddress: String, password: String, amountStr: String, feeStr: String) -> String  {
     do {

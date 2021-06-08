@@ -9,7 +9,7 @@ import UIKit
 
 class WalletViewController: UIViewController {
     
-    private let coinNameDic:[ChainType: [CoinName]] = [.btc: [.btc, .usdtOmni], .eth: [.eth, .usdtErc20]]
+    private let coinNameDic:[ChainType: [CoinName]] = [.btc: [.btc, .usdtOmni], .eth: [.eth, .usdtErc20], .heco: [.ht], .bsc: [.bnb]]
     
     @IBOutlet weak var chainTypeBgView: UIView!
     @IBOutlet weak var chainTypeNameLab: UILabel!
@@ -73,7 +73,13 @@ class WalletViewController: UIViewController {
                 self!.tableView.mj_header?.endRefreshing()
             }
         } else {
-            let url = String(format: ethBalanceUrl, UserDefaults.standard.string(forKey: currentChainType.rawValue)!)
+            var formatUrl = "\(ethUrl)\(balanceUrl)\(ethApiKey)"
+            if currentChainType == .heco {
+                formatUrl = "\(hecoUrl)\(balanceUrl)\(hecoApiKey)"
+            } else if currentChainType == .bsc {
+                formatUrl = "\(bscUrl)\(balanceUrl)\(bscApiKey)"
+            }
+            let url = String(format: formatUrl, UserDefaults.standard.string(forKey: currentChainType.rawValue)!)
             AF.request(url).responseJSON {[weak self] response  in
                 if let responseDic = response.value as? [String: Any], let weiBalance = responseDic["result"] as? String {
                     let handler = NSDecimalNumberHandler.init(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)

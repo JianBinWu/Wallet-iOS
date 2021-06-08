@@ -36,7 +36,7 @@ public final class Identity {
   init(metadata: WalletMeta, mnemonic: String, password: String) throws {
     keystore = try IdentityKeystore(metadata: metadata, mnemonic: mnemonic, password: password)
 
-    _ = try deriveWallets(for: [.eth, .btc], mnemonic: mnemonic, password: password)
+    _ = try deriveWallets(for: [.eth, .btc, .heco, .bsc], mnemonic: mnemonic, password: password)
 
     _ = Identity.storage.flushIdentity(keystore)
   }
@@ -128,7 +128,7 @@ extension Identity {
     switch metadata.chain! {
     case .btc:
       keystore = try BTCMnemonicKeystore(password: password, mnemonic: mnemonic, path: path, metadata: metadata)
-    case .eth:
+    case .eth, .heco, .bsc:
       keystore = try ETHMnemonicKeystore(password: password, mnemonic: mnemonic, path: path, metadata: metadata)
     case .eos:
       throw GenericError.operationUnsupported
@@ -211,7 +211,7 @@ extension Identity {
     switch metadata.chain! {
     case .btc:
       keystore = try BTCKeystore(password: password, wif: privateKey, metadata: metadata)
-    case .eth:
+    case .eth, .heco, .bsc:
       keystore = try ETHKeystore(password: password, privateKey: privateKey, metadata: metadata)
     case .eos:
       guard let accountName = accountName, !accountName.isEmpty else {
@@ -294,6 +294,12 @@ extension Identity {
       switch chainType {
       case .eth:
         meta.name = "ETH"
+        return try importFromMnemonic(mnemonic, metadata: meta, encryptBy: password, at: BIP44.eth)
+      case .heco:
+        meta.name = "HECO"
+        return try importFromMnemonic(mnemonic, metadata: meta, encryptBy: password, at: BIP44.eth)
+      case .bsc:
+        meta.name = "BSC"
         return try importFromMnemonic(mnemonic, metadata: meta, encryptBy: password, at: BIP44.eth)
       case .btc:
         meta.name = "BTC"

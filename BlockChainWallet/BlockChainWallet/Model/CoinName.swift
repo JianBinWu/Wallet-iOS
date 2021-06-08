@@ -12,4 +12,6 @@ enum CoinName: String {
     case eth = "ETH"
     case usdtOmni = "USDT_Omni"
     case usdtErc20 = "USDT_Erc20"
+    case ht = "HT"
+    case bnb = "BNB"
 }

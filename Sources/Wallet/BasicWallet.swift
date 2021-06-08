@@ -37,7 +37,7 @@ public class BasicWallet {
       switch version {
       case 3:
         switch chainType {
-        case .eth:
+        case .eth,.heco,.bsc:
           if mnemonicKeystoreSource.contains(source) {
             self.keystore = try ETHMnemonicKeystore(json: json)
           } else {
