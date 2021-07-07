@@ -2,6 +2,11 @@
 This is a blockchain wallet, which imitates imToken and integrates the core code of [imToken open source](https://github.com/consenlabs/token-core-ios).  
 You can use this APP to test the transaction of BTC or ETH on testnet or mainnet.  
 
+## Feature
+- Generate wallet by mnemonic
+- Transfer BTC, ETH, HT, BNB on mainNet or testNet
+- DApp browser(realized by [WalletConnect Protocol](https://walletconnect.org/))
+
 ## Installation and Run the Example   
 I've already uploaded all files, just download and run it.  
 
@@ -25,6 +30,9 @@ ETH explore:
 https://kovan.etherscan.io/  
 <img src="SampleImage/Transfer.PNG" width="375" alt="Transfer"/>
 
+### DApp browser(example: Uniswap)
+<img src="SampleImage/DApp.PNG" width="375" alt="Transfer"/>
+
 ## Troubleshooting
 If you use pod to re-import third-party frameworks, the bigInt framework will have problems due to version reasons, please follow the simulator prompts to modify the code.  
 
@@ -38,7 +46,6 @@ If you use pod to re-import third-party frameworks, the bigInt framework will ha
 - [ ] Backup mnemonic words
 - [ ] Scan code
 - [ ] Derive subAddress
-- [ ] DApp browser
 
 ## Thanks and more info
 Thanks imToken open source.
