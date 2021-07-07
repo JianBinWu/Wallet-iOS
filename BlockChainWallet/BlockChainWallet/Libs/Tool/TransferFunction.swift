@@ -9,6 +9,32 @@ import Foundation
 
 fileprivate var nonce:Int = 0
 
+func ethTransferFromDApp(_ dataDic: [String: String], password: String) -> String {
+    do {
+        let fromAddress = dataDic["from"]!
+        let amountStr = dataDic["value"]!
+        let gasStr = String(dataDic["gas"]!)
+        let fee = NSDecimalNumber(string: dataDic["fee"]!)
+        let weiGasPrice = fee.multiplying(byPowerOf10: 18).dividing(by: NSDecimalNumber(string: gasStr)).doubleValue
+        let weiGasPriceStr = String(format:"%.0f", weiGasPrice)
+        
+        getTxNonce(chainType: .eth, address: fromAddress.removePrefix0xIfNeeded())
+        
+        let ethWallet = try WalletManager.findWalletByAddress(fromAddress, on: .eth)
+        let data = dataDic["data"]!
+        let tId = dataDic["to"]!
+        let signedResult = try WalletManager.ethSignTransaction(walletID: ethWallet.walletID, nonce: String(nonce), gasPrice: weiGasPriceStr, gasLimit: gasStr, to: tId, value: amountStr, data: data, password: password, chainID: isMainNet ? 1 : 42)
+        let requestUrl = String(format: "\(chainUrlDic[.eth]!)\(pushUrl)\(apiKeyDic[.eth]!)", signedResult.signedTx)
+        let result = pushEthTransferInfo(requestUrl)
+        return result
+    } catch PasswordError.incorrect {
+        return "Transfer_RemindPasswordIncorrect"
+    } catch {
+        print(error)
+        return "Transfer_Failed"
+    }
+}
+
 func transferEthToken(tokenId: String, fromAddress: String, toAddress: String, fee: String, gasLimit: Int, password: String, amountStr: String, decimals: Int) -> String {
     do {
         let toAddress = toAddress.removePrefix0xIfNeeded()
@@ -184,7 +210,8 @@ fileprivate func pushEthTransferInfo(_ url: String) -> String {
             if let error = value["error"] as? [String: Any] {
                 result = error["message"] as! String
             } else {
-                result = "Transfer_Success"
+                let hashStr:String = value["result"] as! String
+                result = "Transfer_Success" + hashStr
             }
         default:
             result = "Transfer_BadRequest"
@@ -204,9 +231,10 @@ fileprivate func pushBtcTransferInfo(_ url: String, body: Parameters) -> String 
         }
         switch response.result {
         case .success:
-            let value = response.value as! [String: Any]
+            let value = response.value as! [String: [String: Any]]
             if let _ = value["tx"] {
-                result = "Transfer_Success"
+                let hashStr:String = value["tx"]!["hash"] as! String
+                result = "Transfer_Success" + hashStr
             } else {
                 result = "Transfer_Failed"
             }

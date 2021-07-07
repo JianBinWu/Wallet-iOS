@@ -1,7 +1,7 @@
 //
 //  CryptoSwift
 //
-//  Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin@krzyzanowskim.com>
+//  Copyright (C) Marcin Krzyżanowski <marcin@krzyzanowskim.com>
 //  This software is provided 'as-is', without any express or implied warranty.
 //
 //  In no event will the authors be held liable for any damages arising from the use of this software.
@@ -13,8 +13,32 @@
 //  - This notice may not be removed or altered from any source or binary distribution.
 //
 
-protocol BlockModeWorker {
-    var cipherOperation: CipherOperationOnBlock { get }
-    mutating func encrypt(_ plaintext: ArraySlice<UInt8>) -> Array<UInt8>
-    mutating func decrypt(_ ciphertext: ArraySlice<UInt8>) -> Array<UInt8>
+import Foundation
+
+// First byte is 0x80, rest is zero padding
+// http://www.crypto-it.net/eng/theory/padding.html
+// http://www.embedx.com/pdfs/ISO_STD_7816/info_isoiec7816-4%7Bed21.0%7Den.pdf
+struct ISO78164Padding: PaddingProtocol {
+  init() {
+  }
+
+  @inlinable
+  func add(to bytes: Array<UInt8>, blockSize: Int) -> Array<UInt8> {
+    var padded = Array(bytes)
+    padded.append(0x80)
+
+    while (padded.count % blockSize) != 0 {
+      padded.append(0x00)
+    }
+    return padded
+  }
+
+  @inlinable
+  func remove(from bytes: Array<UInt8>, blockSize _: Int?) -> Array<UInt8> {
+    if let idx = bytes.lastIndex(of: 0x80) {
+      return Array(bytes[..<idx])
+    } else {
+      return bytes
+    }
+  }
 }

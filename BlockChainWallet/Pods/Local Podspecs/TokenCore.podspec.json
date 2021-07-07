@@ -22,7 +22,7 @@
   "swift_versions": "4.0",
   "dependencies": {
     "CryptoSwift": [
-      "0.9.0"
+
     ],
     "BigInt": [
       "3.0.0"

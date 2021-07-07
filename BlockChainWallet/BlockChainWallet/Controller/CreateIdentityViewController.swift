@@ -57,7 +57,7 @@ class CreateIdentityViewController: UIViewController {
             do {
                 let source = WalletMeta.Source.newIdentity
                 var metadata = WalletMeta(source: source)
-                metadata.network = Network.testnet
+                metadata.network = netType
                 metadata.segWit = .p2wpkh
                 metadata.name = identityName
                 (self!.mnemonicStr, _) = try Identity.createIdentity(password: password, metadata: metadata)

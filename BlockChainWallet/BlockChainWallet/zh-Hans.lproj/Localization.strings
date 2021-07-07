@@ -46,3 +46,11 @@
 "btn_cancel" = "取消";
 "btn_confirm" = "确定";
 
+//DApp
+"DApp_connectRequest" = "请求连接你的钱包";
+"DApp_allowGetAddress" = "允许获取当前钱包地址";
+"DApp_accessWalletSignWarn" = "正在申请你的钱包发起交易，你确认使用当前钱包进行签名发起交易吗？";
+"DApp_transactionCanceled" = "交易被取消";
+"DApp_applyForAuthorization" = "申请授权";
+"DApp_applyForAuthorizationDetail" = "申请转账授权";
+"Transfer_InputPwdRemind" = "请输入身份密码";

@@ -45,3 +45,12 @@
 //btn
 "btn_cancel" = "取消";
 "btn_confirm" = "確定";
+
+//DApp
+"DApp_connectRequest" = "請求連接你的錢包";
+"DApp_allowGetAddress" = "允許獲取當前錢包地址";
+"DApp_accessWalletSignWarn" = "正在申請你的錢包發起交易，你確認使用當前錢包進行簽名發起交易嗎？";
+"DApp_transactionCanceled" = "交易被取消";
+"DApp_applyForAuthorization" = "申請授權";
+"DApp_applyForAuthorizationDetail" = "申請轉賬授權";
+"Transfer_InputPwdRemind" = "請輸入身份密碼";

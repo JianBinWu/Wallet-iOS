@@ -15,6 +15,8 @@
 		CE86CE5926098E8A000AFD12 /* LocalizationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE86CE5826098E8A000AFD12 /* LocalizationTool.swift */; };
 		CEA2F192260DE6D600A2D63A /* RecoverIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2F190260DE6D600A2D63A /* RecoverIdentityViewController.swift */; };
 		CEA2F1982611651E00A2D63A /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */; };
+		CEBEAB20269301260076E34F /* DAppBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEAB1F269301260076E34F /* DAppBrowserViewController.swift */; };
+		CEBEAB38269463F30076E34F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBEAB37269463F30076E34F /* String+Extension.swift */; };
 		CEC5748025B5A36000B0E1C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */; };
 		CEC5748225B5A36000B0E1C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */; };
 		CEC5748425B5A36000B0E1C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5748325B5A36000B0E1C9 /* ViewController.swift */; };
@@ -33,6 +35,7 @@
 		CEC575B025B6C18A00B0E1C9 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC575AF25B6C18A00B0E1C9 /* MeViewController.swift */; };
 		CEC575B425B6D82E00B0E1C9 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC575B225B6D82E00B0E1C9 /* CoinTableViewCell.swift */; };
 		CEC575B525B6D82E00B0E1C9 /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC575B325B6D82E00B0E1C9 /* CoinTableViewCell.xib */; };
+		CEC9A3052695727B007FD92B /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9A3042695727B007FD92B /* Dictionary+Extension.swift */; };
 		CECB158825B6E7FD00E26240 /* WalletListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB158725B6E7FD00E26240 /* WalletListViewController.swift */; };
 		CEF28EF025D51E640059988C /* WalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF28EEE25D51E640059988C /* WalletTableViewCell.swift */; };
 		CEF28EF125D51E640059988C /* WalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF28EEF25D51E640059988C /* WalletTableViewCell.xib */; };
@@ -68,6 +71,8 @@
 		CE86CE5C2609B71F000AFD12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		CEA2F190260DE6D600A2D63A /* RecoverIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverIdentityViewController.swift; sourceTree = "<group>"; };
 		CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		CEBEAB1F269301260076E34F /* DAppBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppBrowserViewController.swift; sourceTree = "<group>"; };
+		CEBEAB37269463F30076E34F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CEC5747C25B5A36000B0E1C9 /* BlockChainWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockChainWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5747F25B5A36000B0E1C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC5748125B5A36000B0E1C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		CEC575AF25B6C18A00B0E1C9 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		CEC575B225B6D82E00B0E1C9 /* CoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTableViewCell.swift; sourceTree = "<group>"; };
 		CEC575B325B6D82E00B0E1C9 /* CoinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinTableViewCell.xib; sourceTree = "<group>"; };
+		CEC9A3042695727B007FD92B /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		CECB158725B6E7FD00E26240 /* WalletListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewController.swift; sourceTree = "<group>"; };
 		CEF28EEE25D51E640059988C /* WalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableViewCell.swift; sourceTree = "<group>"; };
 		CEF28EEF25D51E640059988C /* WalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletTableViewCell.xib; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				CEC5757925B5B89F00B0E1C9 /* UIColor+Extension.swift */,
 				CEC5757625B5B72C00B0E1C9 /* UIView+Extension.swift */,
 				CEA2F1972611651E00A2D63A /* UITextView+Extension.swift */,
+				CEBEAB37269463F30076E34F /* String+Extension.swift */,
+				CEC9A3042695727B007FD92B /* Dictionary+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 				CEF28F0325DB62010059988C /* TransactionViewController.swift */,
 				CEF28F0C25DD1AA30059988C /* ReceiveViewController.swift */,
 				CE86CE2F26089A49000AFD12 /* LanguageSelectViewController.swift */,
+				CEBEAB1F269301260076E34F /* DAppBrowserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -379,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBEAB20269301260076E34F /* DAppBrowserViewController.swift in Sources */,
 				CEF28EF025D51E640059988C /* WalletTableViewCell.swift in Sources */,
 				CEA2F192260DE6D600A2D63A /* RecoverIdentityViewController.swift in Sources */,
 				CE86CE3026089A49000AFD12 /* LanguageSelectViewController.swift in Sources */,
@@ -387,6 +397,7 @@
 				CEC575A625B6A79700B0E1C9 /* BackUpMnemonicViewController.swift in Sources */,
 				CEC5748425B5A36000B0E1C9 /* ViewController.swift in Sources */,
 				CEA2F1982611651E00A2D63A /* UITextView+Extension.swift in Sources */,
+				CEC9A3052695727B007FD92B /* Dictionary+Extension.swift in Sources */,
 				CEC575A925B6BFB900B0E1C9 /* CustomTabBarViewController.swift in Sources */,
 				CEC5748025B5A36000B0E1C9 /* AppDelegate.swift in Sources */,
 				CEF28F1025DD7DA00059988C /* TransferFunction.swift in Sources */,
@@ -406,6 +417,7 @@
 				CEC5759C25B68B1400B0E1C9 /* Const.swift in Sources */,
 				CEF28EF725D53B5E0059988C /* WalletTableSectionHeaderView.swift in Sources */,
 				CEC5757A25B5B89F00B0E1C9 /* UIColor+Extension.swift in Sources */,
+				CEBEAB38269463F30076E34F /* String+Extension.swift in Sources */,
 				CEC5757725B5B72C00B0E1C9 /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

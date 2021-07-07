@@ -10,7 +10,7 @@ import UIKit
 class MeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    let rowTitleArr = [String]()
+    let rowTitleArr = ["DApp"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,11 @@ extension MeViewController: UITableViewDataSource, UITableViewDelegate {
             cell?.selectionStyle = .none
         }
         cell?.textLabel?.text = rowTitleArr[indexPath.row]
+        cell?.accessoryType = .disclosureIndicator
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(LanguageSelectViewController(), animated: true)
+        navigationController?.pushViewController(DAppBrowserViewController(), animated: true)
     }
 }

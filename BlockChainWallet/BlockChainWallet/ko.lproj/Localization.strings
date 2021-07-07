@@ -45,3 +45,12 @@
 //btn
 "btn_cancel" = "취소";
 "btn_confirm" = "결정";
+
+//DApp
+"DApp_connectRequest" = "지갑 연결 요청";
+"DApp_allowGetAddress" = "현재 지갑 주소 가져 오기 허용";
+"DApp_accessWalletSignWarn" = "에서 거래를 시작하기 위해 지갑을 신청하고 있습니다. 현재 지갑을 사용하여 거래를 시작 하시겠습니까?";
+"DApp_transactionCanceled" = "거래 취소";
+"DApp_applyForAuthorization" = "승인 신청";
+"DApp_applyForAuthorizationDetail" = "이전 승인 요청";
+"Transfer_InputPwdRemind"= "신원 암호를 입력하십시오";

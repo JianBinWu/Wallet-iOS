@@ -108,6 +108,9 @@ class TransactionViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 hideHUD()
+                if result.hasPrefix("Transfer_Success") {
+                    result = "Transfer_Success"
+                }
                 popToast(result.localized)
             }
         }

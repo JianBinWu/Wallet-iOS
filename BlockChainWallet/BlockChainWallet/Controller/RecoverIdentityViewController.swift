@@ -64,7 +64,7 @@ class RecoverIdentityViewController: UIViewController {
             do {
                 let source = WalletMeta.Source.recoveredIdentity
                 var metadata = WalletMeta(source: source)
-                metadata.network = Network.testnet
+                metadata.network = netType
                 metadata.segWit = .p2wpkh
                 metadata.name = identityName
                 let identity = try Identity.recoverIdentity(metadata: metadata, mnemonic: mnemonic, password: password)

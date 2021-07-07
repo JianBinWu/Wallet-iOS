@@ -45,3 +45,12 @@
 //btn
 "btn_cancel" = "キャンセル";
 "btn_confirm" = "決定する";
+
+//DApp
+"DApp_connectRequest" = "ウォレットへの接続をリクエスト";
+"DApp_allowGetAddress" = "現在のウォレットアドレスの取得を許可する";
+"DApp_accessWalletSignWarn" = "は、トランザクションを開始するためにウォレットを申請しています。現在のウォレットを使用して、トランザクションに署名して開始しますか？";
+"DApp_transactionCanceled" = "取引がキャンセルされました";
+"DApp_applyForAuthorization" = "承認を申請する";
+"DApp_applyForAuthorizationDetail" = "転送承認をリクエストする";
+"Transfer_InputPwdRemind" = "IDパスワードを入力してください";

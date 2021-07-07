@@ -45,3 +45,12 @@
 //btn
 "btn_cancel" = "cancel";
 "btn_confirm" = "confirm";
+
+//DApp
+"DApp_connectRequest" = "Request to connect to your wallet";
+"DApp_allowGetAddress" = "Allow to get the current wallet address";
+"DApp_accessWalletSignWarn" = "is applying for your wallet to initiate a transaction, are you sure to use your current wallet to sign and initiate a transaction?";
+"DApp_transactionCanceled" = "Transaction cancelled";
+"DApp_applyForAuthorization" = "Apply for authorization";
+"DApp_applyForAuthorizationDetail" = "apply for transfer authorization";
+"Transfer_InputPwdRemind" = "Please enter your identity password";

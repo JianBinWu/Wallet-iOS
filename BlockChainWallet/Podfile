@@ -5,6 +5,7 @@ project 'BlockChainWallet.xcodeproj'
 target 'BlockChainWallet' do
   
   pod 'TokenCore', :path => '../'
+  pod 'WalletConnect', :path => '../'
   pod 'PureLayout'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Alamofire', '~> 5.0.0-beta.2'
@@ -15,6 +16,7 @@ target 'BlockChainWallet' do
   pod 'SQLite.swift', '~> 0.12.0'
   pod 'HandyJSON', '~> 5.0.2'
   pod 'MJRefresh', '~> 3.5.0'
+  pod 'Starscream', '3.1.1'
 
 #  pod "TokenCore", git: "https://github.com/consenlabs/token-core-ios.git"
 end
