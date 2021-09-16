@@ -32,7 +32,6 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
         webView.navigationDelegate = self
         webView.scrollView.bounces = false
         webView.scrollView.showsVerticalScrollIndicator = false
-        webView.customUserAgent = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; M351 Build/KTU84P) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         return webView
     }()
@@ -223,10 +222,11 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let uri = navigationAction.request.url?.absoluteString ?? ""
-        if uri.contains("wc:"), uri.contains("?bridge=") {
+        if uri.contains("wc?uri=") {
             showHUD()
-            guard let session = WCSession.from(string: uri) else {
-                print("invalid uri: \(String(describing: uri))")
+            let wcUri = String(uri.suffix(from: uri.range(of: "wc?uri=")!.upperBound)).removingPercentEncoding!
+            guard let session = WCSession.from(string: wcUri) else {
+                print("invalid uri: \(String(describing: wcUri))")
                 hideHUD()
                 return
             }
