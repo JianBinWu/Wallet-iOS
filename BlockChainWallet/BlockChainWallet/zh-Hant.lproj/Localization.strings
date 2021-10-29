@@ -53,4 +53,5 @@
 "DApp_transactionCanceled" = "交易被取消";
 "DApp_applyForAuthorization" = "申請授權";
 "DApp_applyForAuthorizationDetail" = "申請轉賬授權";
+"DApp_transactionFailed" = "兌換失敗";
 "Transfer_InputPwdRemind" = "請輸入身份密碼";

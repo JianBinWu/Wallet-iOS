@@ -41,7 +41,9 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
         
         self.layoutUI()
         webView.load(urlRequest)
-        getFee()
+        Task {
+           try? await getFee()
+        }
     }
     
     func layoutUI() {
@@ -66,20 +68,12 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
     }
     
     //custom method
-    func getFee() {
-        showHUD()
-        AF.request("https://api.blockcypher.com/v1/eth/main").responseJSON {[weak self] (response) in
-            switch response.result {
-            case .success:
-                if let value = response.value as? [String: Any], let weiGasPrice = value["high_gas_price"] as? Int64 {
-                    let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
-                    let ethGasPrice = NSDecimalNumber(value: weiGasPrice).dividing(by: NSDecimalNumber(value: 1e18)).rounding(accordingToBehavior: handler)
-                    self!.recommendGasPrice = ethGasPrice.stringValue
-                }
-            default:
-                break
-            }
-            hideHUD()
+    func getFee() async throws {
+        let response = try await getRequest(url: "https://api.blockcypher.com/v1/eth/main")
+        if let value = response.value as? [String: Any], let weiGasPrice = value["high_gas_price"] as? Int64 {
+            let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
+            let ethGasPrice = NSDecimalNumber(value: weiGasPrice).dividing(by: NSDecimalNumber(value: 1e18)).rounding(accordingToBehavior: handler)
+            recommendGasPrice = ethGasPrice.stringValue
         }
     }
     
@@ -179,8 +173,7 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
         navigationController?.present(alert, animated: true, completion: nil)
     }
     
-    func showPasswordAlert(dataDic: [String: String], with id: Int64) {
-        weak var weakSelf = self
+    @MainActor func showPasswordAlert(dataDic: [String: String], with id: Int64) {
         let alert = UIAlertController(title: "Transfer_InputPwdRemind".localized, message: nil, preferredStyle: .alert)
         alert.addTextField {
             $0.isSecureTextEntry = true
@@ -189,18 +182,27 @@ class DAppBrowserViewController: UIViewController, WKUIDelegate, WKNavigationDel
         alert.addAction(UIAlertAction(title: "btn_confirm".localized, style: .default, handler: { action in
             showHUD()
             let password = alert.textFields?.first?.text
-            DispatchQueue.global().async {
-                let result = ethTransferFromDApp(dataDic, password: password ?? "")
-                DispatchQueue.main.async {
-                    hideHUD()
-                    var hashString = ""
-                    if result.contains("Transfer_Success") {
-                        hashString = result.replacingOccurrences(of: "Transfer_Success", with: "")
-                        weakSelf!.interactor?.approveRequest(id: id, result: hashString).cauterize()
-                    } else {
-                        popToast(result.localized)
-                        weakSelf!.interactor?.rejectRequest(id: id, message: "DApp_transactionFailed").cauterize()
-                    }
+            Task {
+                var result: String!
+                do {
+                    result = try await ethTransferFromDApp(dataDic, password: password ?? "")
+                } catch PasswordError.incorrect {
+                    result = "Transfer_RemindPasswordIncorrect"
+                } catch GenericError.amountLessThanMinimum {
+                    result = "Transfer_RemindNotSufficient"
+                } catch is AFError {
+                    result = "Transfer_BadRequest"
+                } catch {
+                    print(error)
+                    result = "Transfer_Failed"
+                }
+                hideHUD()
+                if result.contains("Transfer_Success") {
+                    let hashString = result.replacingOccurrences(of: "Transfer_Success", with: "")
+                    self.interactor?.approveRequest(id: id, result: hashString).cauterize()
+                } else {
+                    popToast(result.localized)
+                    self.interactor?.rejectRequest(id: id, message: "DApp_transactionFailed".localized).cauterize()
                 }
             }
         }))

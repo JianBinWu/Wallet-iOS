@@ -53,4 +53,5 @@
 "DApp_transactionCanceled" = "Transaction cancelled";
 "DApp_applyForAuthorization" = "Apply for authorization";
 "DApp_applyForAuthorizationDetail" = "apply for transfer authorization";
+"DApp_transactionFailed" = "Redemption failed";
 "Transfer_InputPwdRemind" = "Please enter your identity password";

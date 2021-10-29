@@ -13,8 +13,6 @@ class CreateIdentityViewController: UIViewController {
     @IBOutlet weak var passwordTxtF: UITextField!
     @IBOutlet weak var confirmPwdTxtF: UITextField!
     
-    var mnemonicStr: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,7 +22,7 @@ class CreateIdentityViewController: UIViewController {
         guard isParamValid() else {
             return
         }
-        generateIdentity()
+        startGenerateIdentity()
     }
     
     func isParamValid() -> Bool {
@@ -47,39 +45,37 @@ class CreateIdentityViewController: UIViewController {
         return true
     }
     
-    func generateIdentity(){
+    @MainActor func startGenerateIdentity() {
         let identityName = identityNameTxtF.text!
         let password = passwordTxtF.text!
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.label.text = "remind_MnemonicCreating".localized
-        
-        DispatchQueue.global().async { [weak self] in
+        Task {
             do {
-                let source = WalletMeta.Source.newIdentity
-                var metadata = WalletMeta(source: source)
-                metadata.network = netType
-                metadata.segWit = .p2wpkh
-                metadata.name = identityName
-                (self!.mnemonicStr, _) = try Identity.createIdentity(password: password, metadata: metadata)
-                Identity.currentIdentity?.wallets.forEach({ (wallet) in
-                    UserDefaults.standard.setValue(wallet.address, forKey: wallet.chainType!.rawValue)
-                })
-                UserDefaults.standard.setValue(password, forKey: "password")
-            } catch {
-                print("createIdentity failed, error:\(error)")
-                DispatchQueue.main.async {
-                    hud.hide(animated: true)
-                    popToast("remind_createMnemonicFail".localized)
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                hud.hide(animated: true)
+                let mnemonicStr = try await generateIdentity(identityName, password)
                 let backUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "BackUpMnemonicViewController") as! BackUpMnemonicViewController
-                backUpVC.mnemonicStr = self!.mnemonicStr
-                self!.navigationController?.pushViewController(backUpVC, animated: true)
+                backUpVC.mnemonicStr = mnemonicStr
+                navigationController?.pushViewController(backUpVC, animated: true)
+            }catch {
+                print("createIdentity failed, error:\(error)")
+                popToast("remind_createMnemonicFail".localized)
             }
+            hud.hide(animated: true)
         }
+    }
+    
+    func generateIdentity(_ identityName: String, _ password: String) async throws -> String {
+        let source = WalletMeta.Source.newIdentity
+        var metadata = WalletMeta(source: source)
+        metadata.network = netType
+        metadata.segWit = .p2wpkh
+        metadata.name = identityName
+        let (mnemonicStr, _) = try Identity.createIdentity(password: password, metadata: metadata)
+        Identity.currentIdentity?.wallets.forEach({ (wallet) in
+            UserDefaults.standard.setValue(wallet.address, forKey: wallet.chainType!.rawValue)
+        })
+        UserDefaults.standard.setValue(password, forKey: "password")
+        return mnemonicStr
     }
     
 }

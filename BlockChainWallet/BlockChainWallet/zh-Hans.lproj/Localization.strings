@@ -53,4 +53,5 @@
 "DApp_transactionCanceled" = "交易被取消";
 "DApp_applyForAuthorization" = "申请授权";
 "DApp_applyForAuthorizationDetail" = "申请转账授权";
+"DApp_transactionFailed" = "兑换失败";
 "Transfer_InputPwdRemind" = "请输入身份密码";

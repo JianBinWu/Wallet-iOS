@@ -30,7 +30,7 @@ class RecoverIdentityViewController: UIViewController {
         guard isParamValid() else {
             return
         }
-        recoverIdentity()
+        startRecoverIdentity()
     }
     
     func isParamValid() -> Bool {
@@ -53,40 +53,36 @@ class RecoverIdentityViewController: UIViewController {
         return true
     }
     
-    func recoverIdentity(){
+    @MainActor func startRecoverIdentity() {
         let identityName = "identity_name"
         let password = passwordTxtF.text!
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         let mnemonic = textView.text!
         hud.label.text = "remind_MnemonicRecovering".localized
-        
-        DispatchQueue.global().async {
+        Task {
             do {
-                let source = WalletMeta.Source.recoveredIdentity
-                var metadata = WalletMeta(source: source)
-                metadata.network = netType
-                metadata.segWit = .p2wpkh
-                metadata.name = identityName
-                let identity = try Identity.recoverIdentity(metadata: metadata, mnemonic: mnemonic, password: password)
-                identity.wallets.forEach({ (wallet) in
-                    UserDefaults.standard.setValue(wallet.address, forKey: wallet.chainType!.rawValue)
-                })
-                UserDefaults.standard.setValue(password, forKey: "password")
-            } catch {
-                print("recoverIdentity failed, error:\(error)")
-                DispatchQueue.main.async {
-                    hud.hide(animated: true)
-                    popToast("remind_recoverIdentityFail".localized)
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                hud.hide(animated: true)
-                
+                try await recoverIdentity(identityName, password, mnemonic)
                 let tabBarVC = CustomTabBarViewController()
                 keyWindow.rootViewController = tabBarVC
+            } catch {
+                print("recoverIdentity failed, error:\(error)")
+                popToast("remind_recoverIdentityFail".localized)
             }
+            hud.hide(animated: true)
         }
+    }
+    
+    func recoverIdentity(_ identityName: String, _ password: String, _ mnemonic: String) async throws {
+        let source = WalletMeta.Source.recoveredIdentity
+        var metadata = WalletMeta(source: source)
+        metadata.network = netType
+        metadata.segWit = .p2wpkh
+        metadata.name = identityName
+        let identity = try Identity.recoverIdentity(metadata: metadata, mnemonic: mnemonic, password: password)
+        identity.wallets.forEach({ (wallet) in
+            UserDefaults.standard.setValue(wallet.address, forKey: wallet.chainType!.rawValue)
+        })
+        UserDefaults.standard.setValue(password, forKey: "password")
     }
 
 }

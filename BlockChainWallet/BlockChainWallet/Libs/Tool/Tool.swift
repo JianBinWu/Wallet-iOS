@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 func popToast(_ text: String) {
     keyWindow.makeToast(text, duration: 1, position: .center)
@@ -48,6 +49,21 @@ func showHUD() {
 
 func hideHUD() {
     MBProgressHUD.hide(for: keyWindow, animated: false)
+}
+
+@MainActor func getRequest(url: String) async throws -> AFDataResponse<Any> {
+    showHUD()
+    typealias GetContinuation = CheckedContinuation<AFDataResponse<Any>, Error>
+    return try await withCheckedThrowingContinuation({ (continuation: GetContinuation) in
+        AF.request(url).responseJSON {response in
+            if let error = response.error {
+                continuation.resume(throwing: error)
+            } else {
+                continuation.resume(returning: response)
+            }
+            hideHUD()
+        }
+    })
 }
 
 

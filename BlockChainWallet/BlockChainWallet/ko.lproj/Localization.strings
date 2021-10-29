@@ -53,4 +53,5 @@
 "DApp_transactionCanceled" = "거래 취소";
 "DApp_applyForAuthorization" = "승인 신청";
 "DApp_applyForAuthorizationDetail" = "이전 승인 요청";
+"DApp_transactionFailed" = "사용 실패";
 "Transfer_InputPwdRemind"= "신원 암호를 입력하십시오";

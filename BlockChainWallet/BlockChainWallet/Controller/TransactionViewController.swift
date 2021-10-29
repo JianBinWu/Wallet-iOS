@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class TransactionViewController: UIViewController {
     
@@ -33,38 +34,25 @@ class TransactionViewController: UIViewController {
     
     func initData() {
         fromAddress = UserDefaults.standard.string(forKey: chainType.rawValue)
-        getFee()
+        Task {
+            try? await getFee()
+        }
     }
     
-    func getFee() {
-        showHUD()
+    @MainActor func getFee() async throws {
         if chainType == .eth {
-            AF.request("https://api.blockcypher.com/v1/eth/main").responseJSON {[weak self] (response) in
-                switch response.result {
-                case .success:
-                    if let value = response.value as? [String: Any], let weiGasPrice = value["high_gas_price"] as? Int64 {
-                        let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
-                        let ethGasPrice = NSDecimalNumber(value: weiGasPrice).dividing(by: NSDecimalNumber(value: 1e18)).multiplying(by: NSDecimalNumber(value: 21000)).rounding(accordingToBehavior: handler)
-                        self!.feeTxtF.text = ethGasPrice.stringValue
-                    }
-                default:
-                    break
-                }
-                hideHUD()
+            let response = try await getRequest(url: "https://api.blockcypher.com/v1/eth/main")
+            if let value = response.value as? [String: Any], let weiGasPrice = value["high_gas_price"] as? Int64 {
+                let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
+                let ethGasPrice = NSDecimalNumber(value: weiGasPrice).dividing(by: NSDecimalNumber(value: 1e18)).multiplying(by: NSDecimalNumber(value: 21000)).rounding(accordingToBehavior: handler)
+                feeTxtF.text = ethGasPrice.stringValue
             }
         } else {
-            AF.request(btcUrl).responseJSON {[weak self] (response) in
-                switch response.result {
-                case .success:
-                    if let value = response.value as? [String: Any], let satFeePerKb = value["high_fee_per_kb"] as? Int {
-                        let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 8, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
-                        let btcFee = NSDecimalNumber(value: satFeePerKb).dividing(by: NSDecimalNumber(value: 1024)).multiplying(by: NSDecimalNumber(value: 180)).dividing(by: NSDecimalNumber(value: 1e8)).rounding(accordingToBehavior: handler)
-                        self!.feeTxtF.text = btcFee.stringValue
-                    }
-                default:
-                    break
-                }
-                hideHUD()
+            let response = try await getRequest(url: btcUrl)
+            if let value = response.value as? [String: Any], let satFeePerKb = value["high_fee_per_kb"] as? Int {
+                let handler = NSDecimalNumberHandler(roundingMode: .plain, scale: 8, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
+                let btcFee = NSDecimalNumber(value: satFeePerKb).dividing(by: NSDecimalNumber(value: 1024)).multiplying(by: NSDecimalNumber(value: 180)).dividing(by: NSDecimalNumber(value: 1e8)).rounding(accordingToBehavior: handler)
+                feeTxtF.text = btcFee.stringValue
             }
         }
     }
@@ -87,32 +75,41 @@ class TransactionViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func startTransfer(pwd: String?) {
+    @MainActor func startTransfer(pwd: String?) {
         showHUD()
         let toAddress = receiveAddressTxtF.text!
         let feeStr = feeTxtF.text!
         let amountStr = amountTxtF.text!
-        DispatchQueue.global().async {[weak self] in
+        Task {
             var result: String!
-            switch self!.coinName {
-            case .btc:
-                result = transferBTC(fromAddress: self!.fromAddress, toAddress: toAddress, password: pwd!, amountStr: amountStr, feeStr: feeStr)
-            case .eth, .ht, .bnb:
-                result = transferMainCoin(chainType: self!.chainType, fromAddress: self!.fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 21000, password: pwd!, amountStr: amountStr)
-            case .usdtErc20:
-                result = transferEthToken(tokenId: "0xdac17f958d2ee523a2206206994597c13d831ec7", fromAddress: self!.fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 60000, password: pwd!, amountStr: amountStr, decimals: 8)
-            case .usdtOmni:
-                result = transferOmniToken(fromAddress: self!.fromAddress, toAddress: toAddress, password: pwd!, amountStr: amountStr, feeStr: feeStr)
-            default:
-                break
-            }
-            DispatchQueue.main.async {
-                hideHUD()
+            do {
+                switch coinName {
+                case .btc:
+                    result = try await transferBTC(fromAddress: fromAddress, toAddress: toAddress, password: pwd!, amountStr: amountStr, feeStr: feeStr)
+                case .eth, .ht, .bnb:
+                    result = try await transferMainCoin(chainType: chainType, fromAddress: fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 21000, password: pwd!, amountStr: amountStr)
+                case .usdtErc20:
+                    result = try await transferEthToken(tokenId: "0xdac17f958d2ee523a2206206994597c13d831ec7", fromAddress: fromAddress, toAddress: toAddress, fee: feeStr, gasLimit: 60000, password: pwd!, amountStr: amountStr, decimals: 8)
+                case .usdtOmni:
+                    result = try await transferOmniToken(fromAddress: fromAddress, toAddress: toAddress, password: pwd!, amountStr: amountStr, feeStr: feeStr)
+                default:
+                    break
+                }
                 if result.hasPrefix("Transfer_Success") {
                     result = "Transfer_Success"
                 }
-                popToast(result.localized)
+            } catch PasswordError.incorrect {
+                result = "Transfer_RemindPasswordIncorrect"
+            } catch GenericError.amountLessThanMinimum {
+                result = "Transfer_RemindNotSufficient"
+            } catch is AFError {
+                result = "Transfer_BadRequest"
+            } catch {
+                print(error)
+                result = "Transfer_Failed"
             }
+            hideHUD()
+            popToast(result.localized)
         }
     }
     

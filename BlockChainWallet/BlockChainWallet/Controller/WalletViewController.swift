@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class WalletViewController: UIViewController {
     
     private let coinNameDic:[ChainType: [CoinName]] = [.btc: [.btc, .usdtOmni], .eth: [.eth, .usdtErc20], .heco: [.ht], .bsc: [.bnb]]
@@ -43,7 +44,7 @@ class WalletViewController: UIViewController {
         
         tableView.register(UINib(nibName: "CoinTableViewCell", bundle: nil), forCellReuseIdentifier: "cellId")
         tableView.tableFooterView = UIView()
-        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: { [weak self] in
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {[weak self] in
             self!.getBalance()
         })
         
@@ -62,15 +63,22 @@ class WalletViewController: UIViewController {
     }
     
     func getBalance() {
-        showHUD()
+        Task {
+            do {
+                try await requestBalance()
+            } catch {
+                print(error.localizedDescription)
+            }
+            await tableView.mj_header?.endRefreshing()
+        }
+    }
+    
+    @MainActor func requestBalance() async throws {
         if currentChainType == .btc {
             let url = String(format:btcBalanceUrl, UserDefaults.standard.string(forKey: currentChainType.rawValue)!)
-            AF.request(url).responseJSON {[weak self] response in
-                if let responseDic = response.value as? [String: Any], let balance = responseDic["balance"] as? Int {
-                    self!.chainTypeBalanceLab.text = NSDecimalNumber(value: balance).dividing(by: NSDecimalNumber(value: 1e8)).stringValue
-                }
-                hideHUD()
-                self!.tableView.mj_header?.endRefreshing()
+            let response = try await getRequest(url: url)
+            if let responseDic = response.value as? [String: Any], let balance = responseDic["balance"] as? Int {
+                chainTypeBalanceLab.text = NSDecimalNumber(value: balance).dividing(by: NSDecimalNumber(value: 1e8)).stringValue
             }
         } else {
             var formatUrl = "\(ethUrl)\(balanceUrl)\(ethApiKey)"
@@ -80,13 +88,10 @@ class WalletViewController: UIViewController {
                 formatUrl = "\(bscUrl)\(balanceUrl)\(bscApiKey)"
             }
             let url = String(format: formatUrl, UserDefaults.standard.string(forKey: currentChainType.rawValue)!)
-            AF.request(url).responseJSON {[weak self] response  in
-                if let responseDic = response.value as? [String: Any], let weiBalance = responseDic["result"] as? String {
-                    let handler = NSDecimalNumberHandler.init(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
-                    self!.chainTypeBalanceLab.text = NSDecimalNumber(string: weiBalance).dividing(by: NSDecimalNumber(value: 1e18)).rounding(accordingToBehavior: handler).stringValue
-                }
-                hideHUD()
-                self!.tableView.mj_header?.endRefreshing()
+            let response = try await getRequest(url: url)
+            if let responseDic = response.value as? [String: Any], let weiBalance = responseDic["result"] as? String {
+                let handler = NSDecimalNumberHandler.init(roundingMode: .plain, scale: 9, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true)
+                chainTypeBalanceLab.text = NSDecimalNumber(string: weiBalance).dividing(by: NSDecimalNumber(value: 1e18)).rounding(accordingToBehavior: handler).stringValue
             }
         }
     }

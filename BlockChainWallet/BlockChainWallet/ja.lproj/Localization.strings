@@ -53,4 +53,5 @@
 "DApp_transactionCanceled" = "取引がキャンセルされました";
 "DApp_applyForAuthorization" = "承認を申請する";
 "DApp_applyForAuthorizationDetail" = "転送承認をリクエストする";
+"DApp_transactionFailed" = "償還に失敗しました";
 "Transfer_InputPwdRemind" = "IDパスワードを入力してください";
